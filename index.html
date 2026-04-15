@@ -19,21 +19,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07080a;
-  --bg-soft:#101216;
-  --panel:#151922;
-  --panel-2:#1b202a;
-  --panel-3:#0f131a;
-  --line:rgba(214,220,228,.12);
-  --line-strong:rgba(214,220,228,.2);
-  --text:#eef2f6;
-  --muted:#a3acb7;
-  --muted-2:#7a838f;
+  --bg:#f3f4f6;
+  --bg-soft:#e9edf1;
+  --panel:#ffffff;
+  --panel-2:#f4f6f8;
+  --panel-3:#edf1f4;
+  --line:rgba(18,28,45,.10);
+  --line-strong:rgba(18,28,45,.18);
+  --text:#16202b;
+  --muted:#5f6975;
+  --muted-2:#7b8793;
   --red:#d52b1e;
   --red-bright:#f03a2c;
-  --silver:#c8ced6;
-  --shadow:0 20px 60px rgba(0,0,0,.35);
-  --shadow-soft:0 12px 32px rgba(0,0,0,.25);
+  --silver:#3f4c59;
+  --shadow:0 22px 60px rgba(15,23,42,.10);
+  --shadow-soft:0 12px 30px rgba(15,23,42,.08);
   --radius:24px;
   --nav-h:82px;
 }
@@ -42,9 +42,9 @@ html{scroll-behavior:smooth;scroll-padding-top:110px}
 body{
   font-family:'Barlow',sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(213,43,30,.16), transparent 22%),
-    radial-gradient(circle at 85% 12%, rgba(255,255,255,.06), transparent 18%),
-    linear-gradient(180deg,#0a0b0e 0%, #090b0f 30%, #0b0d11 100%);
+    radial-gradient(circle at top left, rgba(213,43,30,.08), transparent 24%),
+    radial-gradient(circle at 88% 10%, rgba(255,255,255,.75), transparent 20%),
+    linear-gradient(180deg,#fafbfc 0%, #f2f4f7 45%, #eef2f5 100%);
   color:var(--text);
   overflow-x:hidden;
 }
@@ -72,9 +72,9 @@ img{display:block;max-width:100%}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   height:var(--nav-h);
-  background:rgba(8,10,14,.74);
+  background:rgba(255,255,255,.82);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(18,28,45,.08);
 }
 .nav-inner{
   height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;
@@ -86,19 +86,19 @@ nav{
   font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:1.9px;text-transform:uppercase;color:var(--muted);
   transition:.22s ease;
 }
-.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.72)}
 .nav-links .cta{
   background:linear-gradient(180deg,var(--red-bright),var(--red));
-  color:#fff;box-shadow:0 10px 25px rgba(213,43,30,.28)
+  color:#18212b;box-shadow:0 10px 25px rgba(213,43,30,.28)
 }
 .nav-links .cta:hover{background:linear-gradient(180deg,#ff4a3a,var(--red-bright))}
 .nav-phone{font-weight:700;color:var(--silver);white-space:nowrap}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
 .hamburger span{width:26px;height:2px;background:#fff;border-radius:10px}
-.mobile-menu{display:none;background:#0d1117;border-top:1px solid var(--line)}
+.mobile-menu{display:none;background:#ffffff;border-top:1px solid var(--line)}
 .mobile-menu.open{display:block}
 .mobile-menu a{display:block;padding:16px 28px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1.3px;font-size:14px}
-.mobile-menu a:last-child{color:#fff;background:var(--red)}
+.mobile-menu a:last-child{color:#18212b;background:var(--red)}
 
 .hero{
   padding-top:calc(var(--nav-h) + 40px);
@@ -109,7 +109,7 @@ nav{
 .hero-shell{
   position:relative;
   border:1px solid var(--line);
-  background:linear-gradient(135deg,rgba(21,25,34,.92),rgba(9,11,15,.92));
+  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(241,244,248,.98));
   border-radius:34px;
   overflow:hidden;
   box-shadow:var(--shadow);
@@ -117,8 +117,8 @@ nav{
 .hero-shell::before{
   content:"";position:absolute;inset:0;
   background:
-    radial-gradient(circle at 16% 24%, rgba(213,43,30,.18), transparent 26%),
-    linear-gradient(90deg, rgba(7,8,10,.94) 0%, rgba(7,8,10,.82) 44%, rgba(7,8,10,.2) 100%);
+    radial-gradient(circle at 16% 24%, rgba(213,43,30,.10), transparent 28%),
+    linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.75) 42%, rgba(255,255,255,.18) 100%);
   z-index:1;
 }
 .hero-grid{
@@ -143,10 +143,10 @@ nav{
   min-height:56px;padding:0 28px;border-radius:999px;text-decoration:none;
   font:800 15px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:1.8px;transition:.22s ease;
 }
-.btn-primary{background:linear-gradient(180deg,var(--red-bright),var(--red));color:#fff;box-shadow:0 14px 30px rgba(213,43,30,.26)}
+.btn-primary{background:linear-gradient(180deg,var(--red-bright),var(--red));color:#18212b;box-shadow:0 14px 30px rgba(213,43,30,.26)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(213,43,30,.34)}
-.btn-secondary{border:1px solid var(--line-strong);color:var(--silver);background:rgba(255,255,255,.03)}
-.btn-secondary:hover{border-color:rgba(255,255,255,.24);color:#fff;background:rgba(255,255,255,.06)}
+.btn-secondary{border:1px solid var(--line-strong);color:var(--silver);background:rgba(255,255,255,.82)}
+.btn-secondary:hover{border-color:rgba(255,255,255,.24);color:#18212b;background:rgba(255,255,255,.06)}
 .hero-stats{
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
 }
@@ -156,30 +156,30 @@ nav{
   background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
   border-radius:20px;
 }
-.hero-stat strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:#fff;letter-spacing:.8px}
+.hero-stat strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:#18212b;letter-spacing:.8px}
 .hero-stat span{display:block;margin-top:4px;color:var(--muted-2);font:700 11px/1.45 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase}
 .hero-visual{
-  position:relative;min-height:760px;background:#0b0d11;
+  position:relative;min-height:760px;background:#dfe5ea;
 }
 .hero-main-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.88) contrast(1.05) brightness(.8)}
-.hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,14,.12),rgba(8,10,14,.56))}
+.hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(17,24,39,.16))}
 .hero-card{
   position:absolute;z-index:3;right:28px;bottom:28px;left:28px;
-  background:linear-gradient(180deg,rgba(8,10,14,.84),rgba(18,22,30,.94));
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(243,246,249,.98));
   border:1px solid rgba(255,255,255,.12);
   border-radius:24px;padding:20px 22px;box-shadow:var(--shadow-soft)
 }
 .hero-card-top{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:16px}
 .hero-card-label{font:700 11px/1 'Barlow Condensed',sans-serif;color:var(--red);letter-spacing:2.4px;text-transform:uppercase;margin-bottom:8px}
 .hero-card-title{font-family:'Bebas Neue',sans-serif;font-size:30px;line-height:.95;letter-spacing:1px}
-.hero-badge{padding:8px 12px;border-radius:999px;background:rgba(213,43,30,.14);border:1px solid rgba(213,43,30,.36);font:800 11px/1 'Barlow Condensed',sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:#fff;white-space:nowrap}
+.hero-badge{padding:8px 12px;border-radius:999px;background:rgba(213,43,30,.14);border:1px solid rgba(213,43,30,.36);font:800 11px/1 'Barlow Condensed',sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:#18212b;white-space:nowrap}
 .hero-proof{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .hero-proof-item{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);height:150px}
 .hero-proof-item img{width:100%;height:100%;object-fit:cover}
 .hero-proof-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.75) 100%)}
 .hero-proof-label{position:absolute;left:12px;bottom:12px;z-index:2;padding:6px 10px;border-radius:999px;font:800 10px/1 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase}
-.hero-proof-label.before{background:rgba(0,0,0,.72);color:#e8edf3;border:1px solid rgba(255,255,255,.12)}
-.hero-proof-label.after{background:rgba(213,43,30,.92);color:#fff}
+.hero-proof-label.before{background:rgba(0,0,0,.72);color:#18212b;border:1px solid rgba(255,255,255,.12)}
+.hero-proof-label.after{background:rgba(213,43,30,.92);color:#18212b}
 .hero-logo-mark{position:absolute;right:22px;top:22px;z-index:3;width:180px;opacity:.88;filter:drop-shadow(0 14px 30px rgba(0,0,0,.35))}
 
 .trust-bar{padding:26px 0 0}
@@ -189,26 +189,105 @@ nav{
   background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
   color:var(--silver);font:700 12px/1.5 'Barlow Condensed',sans-serif;letter-spacing:1.7px;text-transform:uppercase;
 }
-.trust-item strong{display:block;color:#fff;font-size:14px;letter-spacing:1.1px;margin-bottom:4px}
+.trust-item strong{display:block;color:#18212b;font-size:14px;letter-spacing:1.1px;margin-bottom:4px}
 
 .services{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
 .services-top{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:38px}
 .services-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:16px}
 .service-card{
-  position:relative;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--panel-3));
-  min-height:320px;box-shadow:var(--shadow-soft)
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:28px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#ffffff,#edf1f4);
+  min-height:320px;
+  box-shadow:var(--shadow-soft);
 }
-.service-card.large{grid-row:span 2;min-height:658px}
-.service-media{position:absolute;inset:0;opacity:.28}
-.service-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.85)}
-.service-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(6,8,10,.88) 72%)}
-.service-content{position:relative;z-index:1;padding:30px 28px;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
-.service-no{font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:1;color:rgba(255,255,255,.09);margin-bottom:auto}
-.service-card.large .service-no{font-size:110px}
-.service-title{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:.8px;line-height:.96;margin:16px 0 12px}
-.service-desc{color:var(--muted);font-size:15px;line-height:1.82;max-width:420px}
-.service-link{margin-top:18px;display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:800 12px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:2px}
-.service-link span{color:var(--red)}
+
+.service-card.large{
+  grid-row:span 2;
+  min-height:658px;
+}
+
+.service-media{
+  position:absolute;
+  inset:0;
+  opacity:1;
+}
+
+.service-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:saturate(.92) contrast(1.02) brightness(.82);
+}
+
+.service-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.10) 0%,
+    rgba(255,255,255,.02) 30%,
+    rgba(15,23,42,.48) 100%
+  );
+}
+
+.service-content{
+  position:relative;
+  z-index:1;
+  padding:30px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  height:100%;
+}
+
+.service-no{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:72px;
+  line-height:1;
+  color:rgba(255,255,255,.22);
+  margin-bottom:auto;
+}
+
+.service-card.large .service-no{
+  font-size:110px;
+}
+
+.service-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:36px;
+  letter-spacing:.8px;
+  line-height:.96;
+  margin:16px 0 12px;
+  color:#ffffff;
+  text-shadow:0 2px 10px rgba(0,0,0,.22);
+}
+
+.service-desc{
+  color:rgba(255,255,255,.88);
+  font-size:15px;
+  line-height:1.82;
+  max-width:420px;
+  text-shadow:0 1px 8px rgba(0,0,0,.18);
+}
+
+.service-link{
+  margin-top:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:#ffffff;
+  text-decoration:none;
+  font:800 12px/1 'Barlow Condensed',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.service-link span{
+  color:#ff5a4d;
+}
 
 .showcase-head{display:flex;justify-content:space-between;gap:28px;align-items:end;flex-wrap:wrap;margin-bottom:38px}
 .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -217,30 +296,30 @@ nav{
 }
 .case-card.wide{grid-column:1/-1}
 .compare{
-  position:relative;height:510px;background:#0d1014;overflow:hidden;cursor:ew-resize
+  position:relative;height:510px;background:#dfe4ea;overflow:hidden;cursor:ew-resize
 }
 .case-card:not(.wide) .compare{height:400px}
 .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .compare .after{z-index:1}
 .compare .before{z-index:2;clip-path:inset(0 50% 0 0);filter:saturate(.72) brightness(.88)}
 .compare .divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:3;transform:translateX(-50%)}
-.compare .handle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:56px;height:56px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font:800 20px/1 sans-serif;box-shadow:0 12px 24px rgba(0,0,0,.25)}
+.compare .handle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:56px;height:56px;border-radius:50%;background:#ffffff;color:#18212b;display:grid;place-items:center;font:800 20px/1 sans-serif;box-shadow:0 12px 24px rgba(0,0,0,.25)}
 .compare-labels{position:absolute;inset:auto 16px 16px 16px;z-index:4;display:flex;justify-content:space-between;gap:10px}
 .compare-label{padding:8px 12px;border-radius:999px;font:800 11px/1 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase}
-.compare-label.before{background:rgba(0,0,0,.72);color:#fff;border:1px solid rgba(255,255,255,.12)}
-.compare-label.after{background:rgba(213,43,30,.92);color:#fff}
+.compare-label.before{background:rgba(0,0,0,.72);color:#18212b;border:1px solid rgba(255,255,255,.12)}
+.compare-label.after{background:rgba(213,43,30,.92);color:#18212b}
 .case-copy{padding:22px 24px 24px}
 .case-title{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:10px}
 .case-title h3{font-family:'Bebas Neue',sans-serif;font-size:34px;line-height:.95;letter-spacing:.8px}
-.case-tag{padding:8px 12px;border-radius:999px;border:1px solid rgba(213,43,30,.35);background:rgba(213,43,30,.12);font:800 11px/1 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap}
+.case-tag{padding:8px 12px;border-radius:999px;border:1px solid rgba(213,43,30,.35);background:rgba(213,43,30,.12);font:800 11px/1 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#18212b;white-space:nowrap}
 .case-copy p{color:var(--muted);font-size:15px;line-height:1.78}
 .static-split{display:grid;grid-template-columns:1fr 1fr;height:400px}
 .static-half{position:relative;overflow:hidden}
 .static-half img{width:100%;height:100%;object-fit:cover}
 .static-half.before img{filter:saturate(.7) brightness(.88)}
 .static-label{position:absolute;left:14px;bottom:14px;padding:7px 11px;border-radius:999px;font:800 10px/1 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase}
-.static-label.before{background:rgba(0,0,0,.72);color:#fff;border:1px solid rgba(255,255,255,.12)}
-.static-label.after{background:rgba(213,43,30,.92);color:#fff}
+.static-label.before{background:rgba(0,0,0,.72);color:#18212b;border:1px solid rgba(255,255,255,.12)}
+.static-label.after{background:rgba(213,43,30,.92);color:#18212b}
 
 .story-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:18px}
 .story-panel,.metrics-panel{border:1px solid var(--line);border-radius:28px;background:linear-gradient(180deg,var(--panel),var(--panel-3));box-shadow:var(--shadow-soft)}
@@ -248,27 +327,27 @@ nav{
 .story-panel p{color:var(--muted);font-size:16px;line-height:1.92}
 .metric-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:18px}
 .metric-card{padding:22px 22px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.02)}
-.metric-card strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:#fff;letter-spacing:.8px}
+.metric-card strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:#18212b;letter-spacing:.8px}
 .metric-card span{display:block;margin-top:6px;color:var(--silver);font:800 12px/1.45 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase}
 .metric-card p{margin-top:10px;color:var(--muted);font-size:14px;line-height:1.72}
 
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
 .review-card{border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,var(--panel),var(--panel-3));padding:28px;box-shadow:var(--shadow-soft)}
 .review-stars{color:var(--red);letter-spacing:3px;font-size:15px;margin-bottom:14px}
-.review-card p{color:#dde2e9;font-size:15px;line-height:1.82;font-style:italic}
+.review-card p{color:#2c3640;font-size:15px;line-height:1.82;font-style:italic}
 .review-meta{margin-top:20px;color:var(--muted);font-size:13px}
-.review-meta strong{display:block;color:#fff;font:800 15px/1.2 'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-.review-banner{margin-top:18px;padding:24px 28px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,rgba(213,43,30,.14),rgba(255,255,255,.03));display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.review-meta strong{display:block;color:#18212b;font:800 15px/1.2 'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.review-banner{margin-top:18px;padding:24px 28px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,rgba(213,43,30,.10),rgba(255,255,255,.88));display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
 .review-banner strong{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:.95;letter-spacing:1px}
 
 .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px}
 .faq-list{border-top:1px solid var(--line)}
 .faq-item{border-bottom:1px solid var(--line)}
-.faq-q{width:100%;background:none;border:none;color:#fff;text-align:left;padding:22px 0;display:flex;justify-content:space-between;gap:16px;align-items:center;font:800 18px/1.4 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.8px;cursor:pointer}
+.faq-q{width:100%;background:none;border:none;color:#18212b;text-align:left;padding:22px 0;display:flex;justify-content:space-between;gap:16px;align-items:center;font:800 18px/1.4 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.8px;cursor:pointer}
 .faq-q span:last-child{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--red);font-size:20px;flex-shrink:0}
 .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:15px;line-height:1.8;transition:max-height .28s ease,padding-bottom .28s ease}
 .faq-item.open .faq-a{max-height:220px;padding-bottom:20px}
-.faq-item.open .faq-q span:last-child{background:var(--red);border-color:var(--red);color:#fff}
+.faq-item.open .faq-q span:last-child{background:var(--red);border-color:var(--red);color:#18212b}
 
 .contact-wrap{border:1px solid var(--line);border-radius:32px;background:linear-gradient(180deg,var(--panel),var(--panel-3));overflow:hidden;box-shadow:var(--shadow)}
 .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr}
@@ -285,12 +364,12 @@ nav{
 .form-group.full{grid-column:1/-1}
 .form-group label{font:800 12px/1 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--silver)}
 .form-input,.form-textarea,select.form-input{
-  width:100%;border:1px solid var(--line);background:rgba(255,255,255,.03);color:#fff;
+  width:100%;border:1px solid var(--line);background:rgba(255,255,255,.82);color:#18212b;
   min-height:54px;padding:0 16px;border-radius:16px;outline:none;font:500 15px/1.2 'Barlow',sans-serif;transition:.18s ease
 }
 .form-textarea{min-height:130px;padding:16px;resize:vertical}
 .form-input:focus,.form-textarea:focus{border-color:rgba(213,43,30,.45);box-shadow:0 0 0 4px rgba(213,43,30,.12)}
-select.form-input option{background:#0f131a;color:#fff}
+select.form-input option{background:#0f131a;color:#18212b}
 
 
 .owner-section{
@@ -311,7 +390,7 @@ select.form-input option{background:#0f131a;color:#fff}
 .owner-photo{
   position:relative;
   min-height:620px;
-  background:#0b0d11;
+  background:#dfe5ea;
 }
 .owner-photo img{
   width:100%;
@@ -324,8 +403,8 @@ select.form-input option{background:#0f131a;color:#fff}
   position:absolute;
   inset:0;
   background:
-    linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.35)),
-    linear-gradient(90deg, transparent 58%, rgba(7,8,10,.88) 100%);
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(17,24,39,.12)),
+    linear-gradient(90deg, transparent 58%, rgba(255,255,255,.88) 100%);
 }
 .owner-photo-badge{
   position:absolute;
@@ -336,7 +415,7 @@ select.form-input option{background:#0f131a;color:#fff}
   border-radius:999px;
   border:1px solid rgba(255,255,255,.12);
   background:rgba(7,8,10,.72);
-  color:#fff;
+  color:#18212b;
   font:800 11px/1 'Barlow Condensed',sans-serif;
   letter-spacing:2px;
   text-transform:uppercase;
@@ -362,14 +441,14 @@ select.form-input option{background:#0f131a;color:#fff}
   margin-bottom:24px;
 }
 .owner-quote{
-  padding:22px 22px 22px 20px;
-  border-left:3px solid var(--red);
-  background:rgba(255,255,255,.03);
-  border-radius:18px;
-  color:#edf2f7;
-  font-size:19px;
-  line-height:1.75;
-  margin-bottom:22px;
+  background: linear-gradient(180deg,#ffffff,#eef1f4);
+  border-radius: 24px;
+  padding: 32px;
+  color: #374151;
+  line-height: 1.8;
+  font-size: 18px;
+  border-left: 4px solid #e03131;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
 }
 .owner-copy p{
   color:var(--muted);
@@ -390,7 +469,7 @@ select.form-input option{background:#0f131a;color:#fff}
 }
 .owner-point strong{
   display:block;
-  color:#fff;
+  color:#18212b;
   font:800 13px/1.3 'Barlow Condensed',sans-serif;
   letter-spacing:2px;
   text-transform:uppercase;
@@ -407,10 +486,10 @@ footer{padding:34px 0 46px}
 .footer-shell{border:1px solid var(--line);border-radius:28px;background:linear-gradient(180deg,var(--panel-3),rgba(255,255,255,.02));padding:28px;display:grid;grid-template-columns:1.25fr .75fr .75fr .9fr;gap:18px}
 .footer-brand img{height:60px;width:auto;margin-bottom:16px}
 .footer-brand p{max-width:320px;color:var(--muted);font-size:14px;line-height:1.8}
-.footer-col h4{font:800 12px/1 'Barlow Condensed',sans-serif;letter-spacing:2.4px;text-transform:uppercase;color:#fff;margin-bottom:14px}
+.footer-col h4{font:800 12px/1 'Barlow Condensed',sans-serif;letter-spacing:2.4px;text-transform:uppercase;color:#18212b;margin-bottom:14px}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .footer-col a{color:var(--muted);text-decoration:none;font-size:14px}
-.footer-col a:hover{color:#fff}
+.footer-col a:hover{color:#18212b}
 .footer-bottom{margin-top:16px;color:var(--muted-2);font-size:13px}
 
 
@@ -441,8 +520,8 @@ footer{padding:34px 0 46px}
   border-radius:999px;
   text-decoration:none;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.03);
-  color:#fff;
+  background:rgba(255,255,255,.82);
+  color:#18212b;
   font:800 12px/1 'Barlow Condensed',sans-serif;
   letter-spacing:1.8px;
   text-transform:uppercase;
@@ -450,9 +529,12 @@ footer{padding:34px 0 46px}
   cursor:pointer;
 }
 .address-btn:hover{
-  background:rgba(255,255,255,.07);
-  border-color:rgba(255,255,255,.18);
+  background:#ffffff;
+  border-color:rgba(18,28,45,.18);
 }
+
+.estimate-strip{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;border:1px solid var(--line);border-radius:30px;padding:38px 40px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(241,244,248,.98));box-shadow:var(--shadow-soft)}
+.estimate-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
 
 @media (max-width: 1180px){
   .hero-grid,.grid-2,.story-grid,.faq-grid,.contact-grid{grid-template-columns:1fr}
@@ -492,6 +574,19 @@ footer{padding:34px 0 46px}
   .section{padding:84px 0}
   .contact-info,.contact-form{padding:28px 20px}
   .contact-phone{font-size:46px}
+  .estimate-strip{grid-template-columns:1fr;padding:28px 22px}
+  .estimate-actions{justify-content:flex-start}
+}
+.compare,
+.compare * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.compare img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
 }
 </style>
 </head>
@@ -509,7 +604,7 @@ footer{padding:34px 0 46px}
       <li><a href="#owner">Owner</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact" class="cta">Free Estimate</a></li>
+      <li><a href="contact.html" class="cta">Free Estimate</a></li>
     </ul>
     <div class="nav-phone">860-953-1966</div>
     <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
@@ -524,6 +619,7 @@ footer{padding:34px 0 46px}
     <a href="#owner" onclick="toggleMenu()">Owner</a>
     <a href="#reviews" onclick="toggleMenu()">Reviews</a>
     <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="contact.html">Free Estimate</a>
     <a href="tel:8609531966">Call 860-953-1966</a>
   </div>
 </nav>
@@ -552,26 +648,7 @@ footer{padding:34px 0 46px}
           </div>
         </div>
         <div class="hero-visual">
-          <img class="hero-main-image" src="audi-after.png" alt="Audi restored by Car Craft Auto Body & Towing">
-          <img class="hero-logo-mark" src="carcraft.png" alt="">
-          <div class="hero-card">
-            <div class="hero-card-top">
-              <div>
-                <div class="hero-card-label">Recent Transformation</div>
-                <div class="hero-card-title">Audi Q5 Repair Showcase</div>
-              </div>
-              <div class="hero-badge">Real Before & After</div>
-            </div>
-            <div class="hero-proof">
-              <div class="hero-proof-item">
-                <img src="audi-before.png" alt="Audi Q5 before repair">
-                <div class="hero-proof-label before">Before</div>
-              </div>
-              <div class="hero-proof-item">
-                <img src="audi-after.png" alt="Audi Q5 after repair">
-                <div class="hero-proof-label after">After</div>
-              </div>
-            </div>
+          <img class="hero-main-image" src="storefront.png" alt="Audi restored by Car Craft Auto Body & Towing">
           </div>
         </div>
       </div>
@@ -598,7 +675,6 @@ footer{padding:34px 0 46px}
         <div class="kicker">What We Do</div>
         <h2 class="section-title">HIGH-END SERVICE.<br><span class="accent">LOCAL TRUST.</span></h2>
       </div>
-      <p class="section-sub">The site needed to feel more premium, so this version leans into real shop photography, stronger contrast, metallic panels, and more intentional section structure instead of generic template blocks.</p>
     </div>
 
     <div class="services-grid">
@@ -609,12 +685,12 @@ footer{padding:34px 0 46px}
           <div class="service-no">01</div>
           <h3 class="service-title">Collision Repair & Auto Body</h3>
           <p class="service-desc">From bumper damage to major front-end and multi-panel repairs, we restore vehicles with factory-minded precision, clean fitment, and paint-matched finishes.</p>
-          <a class="service-link" href="#contact"><span>→</span> Get a free estimate</a>
+          <a class="service-link" href="contact.html"><span>→</span> Get a free estimate</a>
         </div>
       </article>
 
       <article class="service-card">
-        <div class="service-media"><img src="audi-before.png" alt="Vehicle before collision repair"></div>
+        <div class="service-media"><img src="tow.png" alt="Vehicle before collision repair"></div>
         <div class="service-overlay"></div>
         <div class="service-content">
           <div class="service-no">02</div>
@@ -625,35 +701,24 @@ footer{padding:34px 0 46px}
       </article>
 
       <article class="service-card">
-        <div class="service-media"><img src="mercedes-after.png" alt="Mercedes repaired by Car Craft"></div>
-        <div class="service-overlay"></div>
-        <div class="service-content">
-          <div class="service-no">03</div>
-          <h3 class="service-title">Paintless Dent Removal</h3>
-          <p class="service-desc">A cleaner option for eligible dents that preserves the original finish and keeps the repair efficient.</p>
-          <a class="service-link" href="#contact"><span>→</span> Request a quote</a>
-        </div>
-      </article>
-
-      <article class="service-card">
         <div class="service-media"><img src="subaru-after.png" alt="Subaru after repair"></div>
         <div class="service-overlay"></div>
         <div class="service-content">
           <div class="service-no">04</div>
           <h3 class="service-title">Used Car Sales</h3>
           <p class="service-desc">Quality used vehicles, fair pricing, and a shop background that understands condition, repair quality, and presentation.</p>
-          <a class="service-link" href="#contact"><span>→</span> Ask about inventory</a>
+          <a class="service-link" href="contact.html"><span>→</span> Ask about inventory</a>
         </div>
       </article>
 
       <article class="service-card">
-        <div class="service-media"><img src="nissan-before.png" alt="Damaged vehicle before repair"></div>
+        <div class="service-media"><img src="mercedes-before.png" alt="Damaged vehicle before repair"></div>
         <div class="service-overlay"></div>
         <div class="service-content">
           <div class="service-no">05</div>
           <h3 class="service-title">Insurance Claim Support</h3>
           <p class="service-desc">We coordinate with insurance companies so customers are not left guessing about the next step.</p>
-          <a class="service-link" href="#contact"><span>→</span> Start your estimate</a>
+          <a class="service-link" href="contact.html"><span>→</span> Start your estimate</a>
         </div>
       </article>
     </div>
@@ -667,7 +732,6 @@ footer{padding:34px 0 46px}
         <div class="kicker">Our Work</div>
         <h2 class="section-title">REAL VEHICLES.<br><span class="accent">REAL RESULTS.</span></h2>
       </div>
-      <p class="section-sub">The old version felt scattered. This version uses your actual repair photos as the centerpiece so the craftsmanship sells the shop instead of stock-looking design decisions.</p>
     </div>
 
     <div class="case-grid">
@@ -703,7 +767,7 @@ footer{padding:34px 0 46px}
             <h3>Audi Q5 · Fender & Front Corner Repair</h3>
             <div class="case-tag">Restored</div>
           </div>
-          <p>Luxury vehicles need cleaner presentation. This split layout keeps the premium feel while letting the repair speak for itself.</p>
+          <p>Front-end damage to the fender, bumper, and headlight area was repaired with new components, precise panel alignment, and a seamless paint match to restore the vehicle to factory condition.</p>
         </div>
       </article>
 
@@ -723,7 +787,7 @@ footer{padding:34px 0 46px}
             <h3>Mercedes SLK · Front-End Rebuild</h3>
             <div class="case-tag">Restored</div>
           </div>
-          <p>Rebuilt front-end presentation with a cleaner, more editorial section so it feels like a serious case study instead of random uploaded photos.</p>
+          <p>Severe front-end damage was rebuilt with new bumper, headlights, and structural components, followed by precise alignment and a full paint match to restore the vehicle to a clean, factory-quality finish.</p>
         </div>
       </article>
 
@@ -868,60 +932,17 @@ footer{padding:34px 0 46px}
   </div>
 </section>
 
-<section class="section" id="contact">
+<section class="section estimate-strip-section" id="estimate">
   <div class="container">
-    <div class="contact-wrap">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="kicker">Get In Touch</div>
-          <h3>REQUEST A<br>FREE ESTIMATE</h3>
-          <p>Fill out the form or call directly. This section is cleaner, more premium, and easier to trust visually.</p>
-          <a class="contact-phone" href="tel:8609531966">860-953-1966</a>
-          <div class="contact-item"><strong>Visit Us</strong><span id="shopAddress">8 South St, West Hartford, CT 06110</span>
-            <div class="address-actions">
-              <button type="button" class="address-btn" onclick="copyAddress()">Copy Address</button>
-              <a class="address-btn" href="https://www.google.com/maps/search/?api=1&query=8%20South%20St%2C%20West%20Hartford%2C%20CT%2006110" target="_blank" rel="noopener">Open in Google Maps</a>
-            </div>
-          </div>
-          <div class="contact-item"><strong>Email</strong><a href="mailto:info@carcraftautobodytowing.com">info@carcraftautobodytowing.com</a></div>
-          <div class="contact-item"><strong>Hours</strong><span>Mon – Fri: 8:30 AM – 5:00 PM<br>24/7 Emergency Towing Available</span></div>
-          <div class="contact-item"><strong>Service Area</strong><span>West Hartford · Hartford · Newington · Wethersfield · Bloomfield · New Britain · Berlin · Farmington</span></div>
-        </div>
-        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" aria-label="Contact form">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input class="form-input" type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input class="form-input" type="tel" id="phone" name="phone" placeholder="860-555-0000" autocomplete="tel">
-            </div>
-            <div class="form-group">
-              <label for="service">Service Needed</label>
-              <select class="form-input" id="service" name="service">
-                <option value="">Select a service...</option>
-                <option>Auto Body / Collision Repair</option>
-                <option>24-Hour Towing</option>
-                <option>Paintless Dent Removal</option>
-                <option>Used Car Purchase</option>
-                <option>We Buy Used Cars</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group full">
-              <label for="message">Tell Us About Your Vehicle</label>
-              <textarea class="form-textarea" id="message" name="message" placeholder="Year, make, model and description of the damage..." required></textarea>
-            </div>
-            <div class="form-group full">
-              <button type="submit" class="btn btn-primary" style="width:100%;border:none">Send Request</button>
-            </div>
-          </div>
-        </form>
+    <div class="estimate-strip">
+      <div>
+        <div class="kicker">Ready To Start?</div>
+        <h2 class="section-title">REQUEST A FREE<br><span class="accent">ESTIMATE TODAY</span></h2>
+        <p class="section-sub">Send photos and vehicle details through our contact page, call us directly, or get directions to the shop in seconds.</p>
+      </div>
+      <div class="estimate-actions">
+        <a class="btn btn-primary" href="contact.html">Go to Contact Page</a>
+        <a class="btn btn-secondary" href="tel:8609531966">Call 860-953-1966</a>
       </div>
     </div>
   </div>
@@ -937,10 +958,10 @@ footer{padding:34px 0 46px}
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Auto Body Repair</a></li>
+          <li><a href="#services">Auto Body Collision Repair</a></li>
           <li><a href="#services">24-Hour Towing</a></li>
-          <li><a href="#services">Paintless Dent Removal</a></li>
           <li><a href="#services">Used Car Sales</a></li>
+          <li><a href= "#services">Sell Us Your Vehicle</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -958,8 +979,8 @@ footer{padding:34px 0 46px}
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:8609531966">860-953-1966</a></li>
-          <li><a href="mailto:info@carcraftautobodytowing.com">info@carcraftautobodytowing.com</a></li>
-          <li><a href="#contact">8 South St, West Hartford, CT</a></li>
+          <li><a href="mailto:info@balkun@comcast.net">balkun@comcast.net</a></li>
+          <li><a href="contact.html">8 South St, West Hartford, CT</a></li>
           <li><a href="https://www.facebook.com/carcraftautobody" target="_blank" rel="noopener">Facebook</a></li>
         </ul>
       </div>
@@ -1034,23 +1055,42 @@ function setupCompare(compare){
 
   function fromEvent(e){
     const rect = compare.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    return ((clientX - rect.left) / rect.width) * 100;
+    const point = e.touches ? e.touches[0] : e;
+    return ((point.clientX - rect.left) / rect.width) * 100;
   }
 
   setPosition(start);
 
-  const begin = (e) => { active = true; setPosition(fromEvent(e)); };
-  const move = (e) => { if (!active) return; setPosition(fromEvent(e)); };
-  const end = () => { active = false; };
+  compare.querySelectorAll('img').forEach(function(img){
+    img.setAttribute('draggable', 'false');
+    img.addEventListener('dragstart', function(e){
+      e.preventDefault();
+    });
+  });
+
+  const begin = (e) => {
+    e.preventDefault();
+    active = true;
+    setPosition(fromEvent(e));
+  };
+
+  const move = (e) => {
+    if (!active) return;
+    e.preventDefault();
+    setPosition(fromEvent(e));
+  };
+
+  const end = () => {
+    active = false;
+  };
 
   compare.addEventListener('mousedown', begin);
-  compare.addEventListener('mousemove', move);
+  window.addEventListener('mousemove', move);
   window.addEventListener('mouseup', end);
 
-  compare.addEventListener('touchstart', begin, {passive:true});
-  compare.addEventListener('touchmove', move, {passive:true});
-  window.addEventListener('touchend', end, {passive:true});
+  compare.addEventListener('touchstart', begin, { passive: false });
+  window.addEventListener('touchmove', move, { passive: false });
+  window.addEventListener('touchend', end, { passive: true });
 }
 
 document.querySelectorAll('.compare').forEach(setupCompare);
