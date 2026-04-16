@@ -80,26 +80,75 @@ nav{
   height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;
 }
 .nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 20px rgba(213,43,30,.28))}
-.nav-links{display:flex;list-style:none;gap:6px;align-items:center}
-.nav-links a{
-  text-decoration:none;padding:10px 14px;border-radius:999px;
-  font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:1.9px;text-transform:uppercase;color:var(--muted);
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:6px;
+  align-items:center;
+}
+
+.nav-links a:not(.btn){
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:999px;
+  font:700 13px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:1.9px;
+  text-transform:uppercase;
+  color:var(--muted);
   transition:.22s ease;
 }
-.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.72)}
-.nav-links .cta{
-  background:linear-gradient(180deg,var(--red-bright),var(--red));
-  color:#18212b;box-shadow:0 10px 25px rgba(213,43,30,.28)
-}
-.nav-links .cta:hover{background:linear-gradient(180deg,#ff4a3a,var(--red-bright))}
-.nav-phone{font-weight:700;color:var(--silver);white-space:nowrap}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.hamburger span{width:26px;height:2px;background:#18212b;border-radius:10px}
-.mobile-menu{display:none;background:#ffffff;border-top:1px solid var(--line)}
-.mobile-menu.open{display:block}
-.mobile-menu a{display:block;padding:16px 28px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1.3px;font-size:14px}
-.mobile-menu a:last-child{color:#18212b;background:var(--red)}
 
+.nav-links a:not(.btn):hover{
+  color:var(--text);
+  background:rgba(255,255,255,.72);
+}
+
+.nav-phone{
+  font-weight:700;
+  color:var(--silver);
+  white-space:nowrap;
+}
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:26px;
+  height:2px;
+  background:#18212b;
+  border-radius:10px;
+}
+
+.mobile-menu{
+  display:none;
+  background:#ffffff;
+  border-top:1px solid var(--line);
+}
+
+.mobile-menu.open{
+  display:block;
+}
+
+.mobile-menu a{
+  display:block;
+  padding:16px 28px;
+  border-bottom:1px solid var(--line);
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.3px;
+  font-size:14px;
+}
+
+.mobile-menu a:last-child{
+  color:#18212b;
+  background:var(--red);
+}
 .hero{
   padding-top:calc(var(--nav-h) + 40px);
   padding-bottom:42px;
@@ -139,12 +188,32 @@ nav{
 }
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:46px}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  min-height:56px;padding:0 28px;border-radius:999px;text-decoration:none;
-  font:800 15px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:1.8px;transition:.22s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:54px;
+  padding:0 24px;
+  border-radius:16px;
+  text-decoration:none;
+  font:800 14px/1 'Barlow Condensed',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:1.6px;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
 }
-.btn-primary{background:linear-gradient(180deg,var(--red-bright),var(--red));color:#18212b;box-shadow:0 14px 30px rgba(213,43,30,.26)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(213,43,30,.34)}
+
+.btn-primary{
+  background:linear-gradient(180deg, #d9362b 0%, #b92218 100%);
+  color:#ffffff;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 8px 18px rgba(185,34,24,.18);
+}
+
+.btn-primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 24px rgba(185,34,24,.22);
+  background:linear-gradient(180deg, #e03d31 0%, #c1261b 100%);
+}
 .btn-secondary{border:1px solid var(--line-strong);color:var(--silver);background:rgba(255,255,255,.82)}
 .btn-secondary:hover{border-color:rgba(255,255,255,.24);color:#18212b;background:rgba(255,255,255,.06)}
 .hero-stats{
@@ -402,9 +471,12 @@ select.form-input option{background:#0f131a;color:#18212b}
   content:"";
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(17,24,39,.12)),
-    linear-gradient(90deg, transparent 58%, rgba(255,255,255,.88) 100%);
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,.02) 0%,
+    rgba(0,0,0,.08) 55%,
+    rgba(0,0,0,.16) 100%
+  );
 }
 .owner-photo-badge{
   position:absolute;
@@ -594,7 +666,7 @@ footer{padding:34px 0 46px}
 <nav>
   <div class="container nav-inner">
     <a href="#" class="nav-logo" aria-label="Car Craft Auto Body home">
-      <img src="carcraft.png" alt="Car Craft Auto Body & Towing logo">
+      <img src="carcraf2.png" alt="Car Craft Auto Body & Towing logo">
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -604,7 +676,7 @@ footer{padding:34px 0 46px}
       <li><a href="#owner">Owner</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="contact.html" class="cta">Free Estimate</a></li>
+      <a href="contact.html" class="btn btn-primary">Free Estimate</a>
     </ul>
     <div class="nav-phone">860-953-1966</div>
     <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
@@ -648,7 +720,7 @@ footer{padding:34px 0 46px}
           </div>
         </div>
         <div class="hero-visual">
-          <img class="hero-main-image" src="storefront.png" alt="Audi restored by Car Craft Auto Body & Towing">
+          <img class="hero-main-image" src="storefront2.png" alt="Audi restored by Car Craft Auto Body & Towing">
           </div>
         </div>
       </div>
@@ -951,7 +1023,7 @@ footer{padding:34px 0 46px}
   <div class="container">
     <div class="footer-shell">
       <div class="footer-brand">
-        <img src="carcraft.png" alt="Car Craft Auto Body & Towing logo">
+        <img src="carcraf2.png" alt="Car Craft Auto Body & Towing logo">
         <p>West Hartford's trusted collision repair and towing service since 2001. Locally owned, insurance-friendly, and committed to quality work on every vehicle.</p>
       </div>
       <div class="footer-col">
