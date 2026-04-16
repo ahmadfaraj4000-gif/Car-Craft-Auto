@@ -49,28 +49,91 @@ nav{
   backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(18,28,45,.08);
 }
+
 .nav-inner{
-  height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
 }
-.nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 20px rgba(213,43,30,.28))}
-.nav-links{display:flex;list-style:none;gap:6px;align-items:center}
-.nav-links a{
-  text-decoration:none;padding:10px 14px;border-radius:999px;
-  font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:1.9px;text-transform:uppercase;color:var(--muted);
+
+.nav-logo img{
+  height:52px;
+  width:auto;
+  filter:drop-shadow(0 0 20px rgba(213,43,30,.28));
+}
+
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:6px;
+  align-items:center;
+}
+
+.nav-links a:not(.btn){
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:999px;
+  font:700 13px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:1.9px;
+  text-transform:uppercase;
+  color:var(--muted);
   transition:.22s ease;
 }
-.nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,.06)}
-.nav-links .cta{
-  background:linear-gradient(180deg,var(--red-bright),var(--red));
-  color:#18212b;box-shadow:0 10px 25px rgba(213,43,30,.28)
+
+.nav-links a:not(.btn):hover,
+.nav-links a.active{
+  color:var(--text);
+  background:rgba(255,255,255,.72);
 }
-.nav-phone{font-weight:700;color:var(--silver);white-space:nowrap}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.hamburger span{width:26px;height:2px;background:#fff;border-radius:10px}
-.mobile-menu{display:none;background:#ffffff;border-top:1px solid var(--line)}
-.mobile-menu.open{display:block}
-.mobile-menu a{display:block;padding:16px 28px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1.3px;font-size:14px}
-.mobile-menu a:last-child{color:#18212b;background:var(--red)}
+
+.nav-phone{
+  font-weight:700;
+  color:var(--silver);
+  white-space:nowrap;
+}
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:26px;
+  height:2px;
+  background:#18212b;
+  border-radius:10px;
+}
+
+.mobile-menu{
+  display:none;
+  background:#ffffff;
+  border-top:1px solid var(--line);
+}
+
+.mobile-menu.open{
+  display:block;
+}
+
+.mobile-menu a{
+  display:block;
+  padding:16px 28px;
+  border-bottom:1px solid var(--line);
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.3px;
+  font-size:14px;
+}
+
+.mobile-menu a:last-child{
+  color:#18212b;
+  background:var(--red);
+}
 .hero{
   padding-top:calc(var(--nav-h) + 42px);
   padding-bottom:30px;
@@ -214,24 +277,34 @@ footer{padding:22px 0 46px}
     <a href="index.html" class="nav-logo" aria-label="Car Craft Auto Body home">
       <img src="carcraf2.png" alt="Car Craft Auto Body & Towing logo">
     </a>
+
     <ul class="nav-links">
       <li><a href="index.html#services">Services</a></li>
       <li><a href="inventory.html" class="active">Inventory</a></li>
       <li><a href="index.html#work">Our Work</a></li>
       <li><a href="index.html#about">About</a></li>
-      <li><a href="contact.html" class="cta">Free Estimate</a></li>
+      <li><a href="index.html#owner">Owner</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <a href="contact.html" class="btn btn-primary">Free Estimate</a>
     </ul>
+
     <div class="nav-phone">860-953-1966</div>
-    <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </div>
   </div>
+
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#services">Services</a>
-    <a href="inventory.html">Inventory</a>
-    <a href="index.html#work">Our Work</a>
-    <a href="index.html#about">About</a>
-    <a href="contact.html">Free Estimate</a>
+    <a href="index.html#services" onclick="toggleMenu()">Services</a>
+    <a href="inventory.html" onclick="toggleMenu()">Inventory</a>
+    <a href="index.html#work" onclick="toggleMenu()">Our Work</a>
+    <a href="index.html#about" onclick="toggleMenu()">About</a>
+    <a href="index.html#owner" onclick="toggleMenu()">Owner</a>
+    <a href="index.html#reviews" onclick="toggleMenu()">Reviews</a>
+    <a href="index.html#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="contact.html" onclick="toggleMenu()">Free Estimate</a>
     <a href="tel:8609531966">Call 860-953-1966</a>
   </div>
 </nav>
