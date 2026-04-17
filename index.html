@@ -79,7 +79,19 @@ nav{
 .nav-inner{
   height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;
 }
-.nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 20px rgba(213,43,30,.28))}
+.nav-logo{
+  padding:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+}
+
+.nav-logo img{
+  height:64px;
+  width:auto;
+  display:block;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.45));
+}
 .nav-links{
   display:flex;
   list-style:none;
@@ -679,13 +691,20 @@ nav::after{
 .nav-logo{
   display:inline-flex;
   align-items:center;
-  padding:6px 10px;
-  border-radius:18px;
-  background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(242,246,249,.94));
-  border:1px solid rgba(255,255,255,.22);
-  box-shadow:0 10px 28px rgba(0,0,0,.22);
+  padding:0;
+  border-radius:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
 }
-.nav-logo img{filter:drop-shadow(0 0 18px rgba(213,43,30,.16))}
+.nav-logo img{
+  height:68px;
+  width:auto;
+  display:block;
+  filter:
+    drop-shadow(0 0 12px rgba(213,43,30,.18))
+    drop-shadow(0 8px 18px rgba(0,0,0,.45));
+}
 .nav-links a:not(.btn),
 .nav-links a{
   color:rgba(239,244,248,.84);
@@ -739,12 +758,15 @@ footer{padding:30px 0 46px}
   box-shadow:0 0 14px rgba(148,163,184,.10), 0 0 18px rgba(213,43,30,.16);
 }
 .footer-brand img{
-  display:inline-block;
-  background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(242,246,249,.94));
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:18px;
-  padding:8px 12px;
-  box-shadow:0 10px 28px rgba(0,0,0,.18);
+  height:60px;
+  width:auto;
+  display:block;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  padding:0;
+  box-shadow:none;
+  opacity:.9;
 }
 .footer-brand p{
   max-width:320px;
@@ -889,17 +911,16 @@ footer{padding:30px 0 46px}
     <div class="hero-shell">
       <div class="hero-grid">
         <div class="hero-copy">
-          <div class="kicker">West Hartford, CT · Est. 2001</div>
-          <h1 class="hero-title" id="hero-heading">
-            LUXURY-LEVEL<br>
-            <span class="accent">COLLISION</span>
-            <span class="subline">REPAIR & RESTORATION</span>
-          </h1>
-          <p>23+ years of trusted collision repair, 24/7 towing, paintless dent removal, and insurance-friendly service. From first call to final delivery, we make the process feel organized, professional, and stress-free.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:8609531966">Call for Free Estimate</a>
-            <a class="btn btn-secondary" href="#work">See Real Repairs</a>
-          </div>
+       <div class="kicker">West Hartford, CT · Est. 2001</div>
+        <h1 class="hero-title" id="hero-heading">
+          AUTO BODY <span class="accent">&amp;</span><br>
+          <span class="subline">ACCIDENT REPAIR</span>
+        </h1>
+        <p>23+ years repairing damage the right way—from minor body work to full collision repairs. 24/7 towing, insurance-friendly, and a process that’s straightforward from start to finish.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:8609531966">Call for Free Estimate</a>
+          <a class="btn btn-secondary" href="#work">See Real Repairs</a>
+        </div>
           <div class="hero-stats">
             <div class="hero-stat"><strong>23+</strong><span>Years in Business</span></div>
             <div class="hero-stat"><strong>4.9★</strong><span>Google Rating</span></div>
