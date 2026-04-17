@@ -190,11 +190,23 @@ nav{
 .hero-title{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(70px,10vw,136px);
-  line-height:.86;letter-spacing:1.5px;
+  line-height:1;
+  letter-spacing:1.5px;
   margin-bottom:22px;
 }
-.hero-title .accent{color:var(--red)}
-.hero-title .subline{display:block;font-size:clamp(28px,4vw,52px);letter-spacing:5px;color:var(--silver);margin-top:12px}
+
+.hero-title .accent{
+  color:var(--red);
+  display:inline;
+}
+
+.hero-title .subline{
+  display:block;
+  font-size:clamp(28px,4vw,52px);
+  letter-spacing:5px;
+  color:var(--silver);
+  margin-top:12px;
+}
 .hero-copy p{
   max-width:560px;color:var(--muted);font-size:18px;line-height:1.82;margin-bottom:32px;
 }
