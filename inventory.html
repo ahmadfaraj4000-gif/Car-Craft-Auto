@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inventory | Car Craft Auto Body & Towing</title>
-<meta name="description" content="Browse available vehicles at Car Craft Auto Body & Towing in West Hartford, CT. Call for pricing and availability.">
+<meta name="description" content="Browse available vehicles at Car Craft Auto Body & Towing in West Hartford, CT. Call for pricing, availability, free estimates, and shop hours Monday through Friday 8:30 AM to 4:30 PM.">
 <link rel="canonical" href="https://carcraftautobodytowing.com/inventory.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -532,6 +532,17 @@ footer{padding:30px 0 46px}
   .footer-shell{grid-template-columns:1fr}
 }
 
+
+/* === Hours and self-pay SEO additions === */
+.nav-side{display:flex;flex-direction:column;align-items:flex-end;gap:4px;white-space:nowrap}
+.nav-hours{font:800 11px/1 'Barlow Condensed',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:rgba(236,242,247,.76)}
+.hero-hours{display:inline-flex;align-items:center;margin:0 0 18px;padding:10px 14px;border-radius:999px;background:rgba(213,43,30,.10);border:1px solid rgba(213,43,30,.24);color:var(--red);font:800 12px/1.25 'Barlow Condensed',sans-serif;letter-spacing:1.9px;text-transform:uppercase}
+.cash-repair-panel{border:1px solid var(--line);border-radius:32px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(241,244,248,.98));box-shadow:var(--shadow-soft);padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}
+.cash-repair-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;list-style:none}
+.cash-repair-list li{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.72);padding:14px 16px;color:var(--silver);font:800 12px/1.4 'Barlow Condensed',sans-serif;letter-spacing:1.6px;text-transform:uppercase}
+@media (max-width: 1180px){.cash-repair-panel{grid-template-columns:1fr}.cash-repair-list{grid-template-columns:1fr}}
+@media (max-width: 860px){.nav-side{display:none}.hero-hours{display:flex;align-items:flex-start;border-radius:16px;line-height:1.45}.cash-repair-panel{padding:26px 20px}}
+
 </style>
 </head>
 <body>
@@ -553,7 +564,7 @@ footer{padding:30px 0 46px}
       <a href="contact.html" class="btn btn-primary">Free Estimate</a>
     </ul>
 
-    <div class="nav-phone">860-953-1966</div>
+    <div class="nav-side"><div class="nav-phone">860-953-1966</div><div class="nav-hours">Mon–Fri 8:30 AM–4:30 PM</div></div>
 
     <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -570,6 +581,7 @@ footer{padding:30px 0 46px}
     <a href="index.html#faq" onclick="toggleMenu()">FAQ</a>
     <a href="contact.html" onclick="toggleMenu()">Free Estimate</a>
     <a href="tel:8609531966">Call 860-953-1966</a>
+    <a href="contact.html">Hours: Mon–Fri 8:30 AM–4:30 PM</a>
   </div>
 </nav>
 
@@ -577,70 +589,95 @@ footer{padding:30px 0 46px}
   <div class="container">
     <div class="kicker">Inventory</div>
     <h2 class="section-title">CURRENT PLACEHOLDER<br><span class="accent">VEHICLES FOR SALE</span></h2>
-    <p class="section-sub">Swap these out with your real vehicles whenever you are ready. Each card includes a price, quick description, and a button that prompts the customer to call for details.</p>
+    <p class="section-sub">Browse available vehicles and call for current pricing and availability. The shop is open Monday through Friday from 8:30 AM to 4:30 PM.</p>
+    <div class="hero-hours">Open Mon–Fri: 8:30 AM – 4:30 PM · Call 860-953-1966</div>
 
     <div class="inventory-grid">
+
+      <!-- GMC Sierra -->
       <article class="inventory-card">
         <div class="inventory-media">
-          <img src="mercedes-after.png" alt="Silver Mercedes roadster placeholder inventory vehicle">
-          <div class="inventory-price">$12,995</div>
+          <img src="sierra.png" alt="2019 GMC Sierra for sale">
+          <div class="inventory-price">$17,995</div>
         </div>
         <div class="inventory-copy">
-          <h3>2011 Mercedes SLK</h3>
-          <p>Sporty two-seat convertible placeholder listing with a clean presentation, premium look, and room for your actual mileage and features later.</p>
+          <h3>2019 GMC Sierra</h3>
+          <p>White GMC Sierra available now. Strong work truck with full-size capability.</p>
           <div class="inventory-specs">
-            <div class="inventory-spec">Convertible</div>
-            <div class="inventory-spec">Automatic</div>
-            <div class="inventory-spec">Clean Look</div>
+            <div class="inventory-spec">Pickup</div>
+            <div class="inventory-spec">White</div>
+            <div class="inventory-spec">Salvage</div>
           </div>
           <div class="card-actions">
-            <a class="btn btn-primary" href="tel:8609531966">Get Price</a>
+            <a class="btn btn-primary" href="tel:8609531966">Call Now</a>
           </div>
         </div>
       </article>
 
+      <!-- Chevy Colorado -->
       <article class="inventory-card">
         <div class="inventory-media">
-          <img src="audi-after.png" alt="Dark Audi SUV placeholder inventory vehicle">
-          <div class="inventory-price">$16,900</div>
+          <img src="colorado.png" alt="2019 Chevy Colorado for sale">
+          <div class="inventory-price">$13,900</div>
         </div>
         <div class="inventory-copy">
-          <h3>2018 Audi Q5</h3>
-          <p>Luxury SUV placeholder listing with upscale styling, strong road presence, and a layout that makes the inventory page feel more established.</p>
+          <h3>2019 Chevy Colorado</h3>
+          <p>White Chevy Colorado available now. Mid-size pickup with practical size and utility.</p>
           <div class="inventory-specs">
-            <div class="inventory-spec">AWD</div>
-            <div class="inventory-spec">SUV</div>
-            <div class="inventory-spec">Premium Trim</div>
+            <div class="inventory-spec">Pickup</div>
+            <div class="inventory-spec">White</div>
+            <div class="inventory-spec">Chevy</div>
           </div>
           <div class="card-actions">
-            <a class="btn btn-primary" href="tel:8609531966">Get Price</a>
+            <a class="btn btn-primary" href="tel:8609531966">Call Now</a>
           </div>
         </div>
       </article>
 
+      <!-- Pontiac -->
       <article class="inventory-card">
         <div class="inventory-media">
-          <img src="nissan-after.png" alt="White Nissan sedan placeholder inventory vehicle">
-          <div class="inventory-price">$11,450</div>
+          <img src="pontiac.png" alt="2010 Pontiac for sale">
+          <div class="inventory-price">$4,995</div>
         </div>
         <div class="inventory-copy">
-          <h3>2019 Nissan Altima</h3>
-          <p>Clean midsize sedan placeholder listing with modern styling and practical appeal. Easy to replace later with your actual lot inventory details.</p>
+          <h3>2010 Pontiac</h3>
+          <p>Affordable blue Pontiac available now. Budget-friendly transportation option.</p>
           <div class="inventory-specs">
             <div class="inventory-spec">Sedan</div>
-            <div class="inventory-spec">Fuel Efficient</div>
-            <div class="inventory-spec">Daily Driver</div>
+            <div class="inventory-spec">Blue</div>
+            <div class="inventory-spec">Affordable</div>
           </div>
           <div class="card-actions">
-            <a class="btn btn-primary" href="tel:8609531966">Get Price</a>
+            <a class="btn btn-primary" href="tel:8609531966">Call Now</a>
           </div>
         </div>
       </article>
+      <!-- Honda Civic -->
+      <article class="inventory-card">
+        <div class="inventory-media">
+          <img src="civic.png" alt="2012 Honda Civic for sale">
+          <div class="inventory-price">$6,500</div>
+        </div>
+        <div class="inventory-copy">
+          <h3>2012 Honda Civic</h3>
+          <p>Black Honda Civic available now. Reliable, fuel-efficient, and great everyday transportation.</p>
+          <div class="inventory-specs">
+            <div class="inventory-spec">Sedan</div>
+            <div class="inventory-spec">Black</div>
+            <div class="inventory-spec">Honda</div>
+          </div>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="tel:8609531966">Call Now</a>
+          </div>
+        </div>
+      </article>
+
     </div>
 
     <div class="address-wrap">
       <strong>Visit The Shop</strong>
-      <p id="shopAddress">8 South St, West Hartford, CT 06110</p>
+      <p id="shopAddress">8 South St, West Hartford, CT 06110<br>Business Hours: Monday – Friday, 8:30 AM – 4:30 PM</p>
       <div class="address-actions">
         <button type="button" class="address-btn" onclick="copyAddress()">Copy Address</button>
         <a class="address-btn" href="https://www.google.com/maps/search/?api=1&query=8%20South%20St%2C%20West%20Hartford%2C%20CT%2006110" target="_blank" rel="noopener">Open in Google Maps</a>
@@ -680,6 +717,7 @@ footer{padding:30px 0 46px}
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:8609531966">860-953-1966</a></li>
+          <li>Mon–Fri: 8:30 AM – 4:30 PM</li>
           <li><a href="mailto:info@balkun@comcast.net">balkun@comcast.net</a></li>
           <li><a href="contact.html">8 South St, West Hartford, CT</a></li>
           <li><a href="https://www.facebook.com/carcraftautobody" target="_blank" rel="noopener">Facebook</a></li>
