@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Craft Auto Body | Links</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f3f4f6;
+  --panel:#ffffff;
+  --text:#16202b;
+  --muted:#5f6975;
+  --red:#d52b1e;
+  --red-bright:#f03a2c;
+  --line:rgba(18,28,45,.10);
+  --shadow:0 20px 50px rgba(15,23,42,.08);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Barlow',sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(213,43,30,.08), transparent 25%),
+    linear-gradient(180deg,#fafbfc,#eef2f5);
+  color:var(--text);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.wrapper{
+  width:100%;
+  max-width:420px;
+  padding:30px 20px;
+  text-align:center;
+}
+
+/* LOGO */
+.logo{
+  display:inline-flex;
+  padding:16px;
+  border-radius:20px;
+
+  /* 🔥 DARK HEADER-STYLE GRADIENT */
+  background:linear-gradient(180deg, rgba(7,10,14,.97) 0%, rgba(12,17,24,.98) 100%);
+
+  /* subtle border like your nav */
+  border:1px solid rgba(255,255,255,.08);
+
+  /* layered shadow (depth + premium feel) */
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.05);
+
+  margin-bottom:18px;
+}
+
+.logo img{
+  width:115px;
+  display:block;
+
+  /* 🔥 makes logo pop off dark background */
+  filter:
+    drop-shadow(0 8px 20px rgba(0,0,0,.6))
+    drop-shadow(0 0 10px rgba(213,43,30,.15));
+}
+
+/* TITLE */
+.title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:46px;
+  letter-spacing:1px;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-bottom:30px;
+  font-size:14px;
+}
+
+/* LINKS */
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* BUTTON STYLE MATCHES YOUR SITE */
+.link-btn{
+  height:58px;
+  border-radius:18px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font:800 14px 'Barlow',sans-serif;
+  letter-spacing:1px;
+  transition:.2s ease;
+  border:1px solid var(--line);
+  background:#ffffff;
+  color:var(--text);
+  box-shadow:var(--shadow);
+}
+
+.link-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(0,0,0,.12);
+}
+
+/* PRIMARY BUTTON (LIKE YOUR SITE CTA) */
+.link-primary{
+  background:linear-gradient(180deg,var(--red-bright),var(--red));
+  color:#fff;
+  border:none;
+  box-shadow:0 12px 30px rgba(213,43,30,.25);
+}
+
+.link-primary:hover{
+  background:linear-gradient(180deg,#e03d31,#c1261b);
+}
+
+/* FOOTER */
+.footer{
+  margin-top:28px;
+  font-size:12px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="carcraft.png" alt="Car Craft Logo">
+  </div>
+
+  <!-- TITLE -->
+  <div class="title">CAR CRAFT</div>
+  <div class="subtitle">Auto Body & 24hr Towing</div>
+
+  <!-- LINKS -->
+  <div class="links" id="links-container">
+
+    <a href="index.html" class="link-btn link-primary">
+      Visit Our Website
+    </a>
+
+    <a href="https://www.instagram.com/carcraftllc/" target="_blank" class="link-btn">
+      Instagram
+    </a>
+
+    <a href="https://www.facebook.com/people/Car-Craft-Auto-Body-LLC/100068978959029/#" target="_blank" class="link-btn">
+      Facebook
+    </a>
+
+    <a href="tel:8609531966" class="link-btn">
+      Call Now
+    </a>
+
+  </div>
+
+  <div class="footer">
+    West Hartford, CT · Since 2001
+  </div>
+
+</div>
+
+<script>
+function addLink(text, url){
+  const container = document.getElementById("links-container");
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.innerText = text;
+  a.className = "link-btn";
+  a.target = "_blank";
+
+  container.appendChild(a);
+}
+
+/* Example:
+addLink("Inventory", "inventory.html");
+addLink("Free Estimate", "contact.html");
+*/
+</script>
+
+</body>
+</html>
