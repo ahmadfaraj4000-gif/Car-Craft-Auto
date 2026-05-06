@@ -4,9 +4,293 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auto Body Repair & 24 Hour Towing | West Hartford, CT | Car Craft</title>
-<meta name="description" content="Car Craft Auto Body & Towing provides auto body repair, collision repair, repainting, and 24 hour towing in West Hartford, CT. Call 860-953-1966 for free estimates.">
+<meta name="description" content="Car Craft Auto Body & Towing provides auto body repair, collision repair, repainting, bumper repair, dent repair, self-pay repairs, insurance claim support, and 24 hour towing in West Hartford, CT. Call 860-953-1966 for free estimates.">
 <link rel="canonical" href="https://carcraftautobodytowing.com/auto-body-repair-west-hartford.html">
-<link rel="stylesheet" href="styles.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f4f6;
+  --panel:#ffffff;
+  --panel-3:#edf1f4;
+  --line:rgba(18,28,45,.10);
+  --text:#16202b;
+  --muted:#5f6975;
+  --red:#d52b1e;
+  --red-bright:#f03a2c;
+  --silver:#3f4c59;
+  --shadow:0 22px 60px rgba(15,23,42,.10);
+  --shadow-soft:0 12px 30px rgba(15,23,42,.08);
+  --nav-h:82px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Barlow',sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(213,43,30,.08), transparent 24%),
+    radial-gradient(circle at 88% 10%, rgba(255,255,255,.75), transparent 20%),
+    linear-gradient(180deg,#fafbfc 0%, #f2f4f7 45%, #eef2f5 100%);
+  color:var(--text);
+  overflow-x:hidden;
+}
+a{color:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
+.section{padding:100px 0}
+.kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font:700 12px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:3px;text-transform:uppercase;color:var(--red);
+  margin-bottom:18px;
+}
+.kicker::before{content:"";width:36px;height:2px;background:var(--red)}
+.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,6vw,86px);
+  line-height:.94;letter-spacing:1px;
+  margin-bottom:18px;
+}
+.section-title .accent{color:var(--red)}
+.section-sub{max-width:690px;color:var(--muted);font-size:17px;line-height:1.8}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);
+  background:linear-gradient(180deg, rgba(7,10,14,.97) 0%, rgba(11,16,22,.95) 100%);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  box-shadow:0 14px 34px rgba(3,6,10,.24);
+}
+nav::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(148,163,184,.55) 22%, rgba(213,43,30,.88) 50%, rgba(148,163,184,.55) 78%, rgba(255,255,255,0) 100%);
+}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;position:relative;z-index:1}
+.nav-logo img{height:68px;width:auto;display:block;filter:drop-shadow(0 8px 18px rgba(0,0,0,.45))}
+.nav-links{display:flex;list-style:none;gap:6px;align-items:center}
+.nav-links a:not(.btn){
+  text-decoration:none;padding:10px 14px;border-radius:999px;
+  font:700 13px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:1.9px;text-transform:uppercase;color:rgba(239,244,248,.84);
+  transition:.22s ease;
+}
+.nav-links a:not(.btn):hover{color:#fff;background:rgba(255,255,255,.10)}
+.nav-side{display:flex;flex-direction:column;align-items:flex-end;gap:4px;white-space:nowrap}
+.nav-phone{font-weight:700;color:rgba(236,242,247,.90)}
+.nav-hours{font:800 11px/1 'Barlow Condensed',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:rgba(236,242,247,.76)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:0 24px;border-radius:16px;text-decoration:none;
+  font:800 14px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:1.6px;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn-primary{background:linear-gradient(180deg,#d9362b 0%,#b92218 100%);color:#fff;border:1px solid rgba(0,0,0,.08);box-shadow:0 8px 18px rgba(185,34,24,.18)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(185,34,24,.22)}
+.btn-secondary{border:1px solid rgba(18,28,45,.18);color:var(--silver);background:rgba(255,255,255,.82)}
+.btn-secondary:hover{transform:translateY(-1px);background:#fff}
+.hero{
+  padding-top:calc(var(--nav-h) + 44px);
+  padding-bottom:46px;
+}
+.hero-shell{
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(241,244,248,.98));
+  border-radius:34px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.hero-shell::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 16% 24%, rgba(213,43,30,.10), transparent 28%),
+    linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.72) 56%, rgba(255,255,255,.30) 100%);
+  z-index:1;
+}
+.hero-copy{position:relative;z-index:2;padding:80px 64px 70px;max-width:850px}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,10vw,124px);
+  line-height:.94;letter-spacing:1.5px;margin-bottom:22px;
+}
+.hero-title .accent{color:var(--red)}
+.hero-copy p{max-width:720px;color:var(--muted);font-size:18px;line-height:1.82;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.content-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
+.panel{
+  border:1px solid var(--line);
+  border-radius:28px;
+  background:linear-gradient(180deg,var(--panel),var(--panel-3));
+  box-shadow:var(--shadow-soft);
+  padding:34px 32px;
+}
+.panel h2,.panel h3{
+  font-family:'Bebas Neue',sans-serif;
+  letter-spacing:.8px;
+  line-height:.96;
+}
+.panel h2{font-size:48px;margin-bottom:16px}
+.panel h3{font-size:34px;margin-bottom:12px}
+.panel p,.panel li{color:var(--muted);font-size:16px;line-height:1.85}
+.service-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;list-style:none;margin-top:22px}
+.service-list li{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.72);
+  padding:14px 16px;
+  color:var(--silver);
+  font:800 12px/1.4 'Barlow Condensed',sans-serif;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+.dark-cta{
+  margin-top:22px;
+  border-radius:30px;
+  padding:38px;
+  color:#fff;
+  background:
+    radial-gradient(circle at top right, rgba(213,43,30,.22), transparent 36%),
+    linear-gradient(135deg,rgba(20,27,36,.98),rgba(10,14,19,.98));
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 20px 40px rgba(0,0,0,.16);
+}
+.dark-cta h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:56px;
+  line-height:.95;
+  letter-spacing:1px;
+  margin-bottom:14px;
+}
+.dark-cta p{max-width:720px;color:rgba(236,242,247,.78);font-size:16px;line-height:1.85}
+.local-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.local-links a{
+  display:block;
+  padding:20px;
+  border-radius:22px;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+}
+.local-links strong{
+  display:block;
+  color:#fff;
+  font:800 15px/1.2 'Barlow Condensed',sans-serif;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.local-links span{color:rgba(236,242,247,.70);font-size:14px;line-height:1.6}
+footer{padding:30px 0 46px}
+.footer-shell{
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg, rgba(7,10,14,.98) 0%, rgba(12,17,24,.98) 100%);
+  box-shadow:0 20px 44px rgba(4,8,12,.22);
+  color:rgba(238,243,247,.88);
+  border-radius:28px;
+  padding:28px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr .8fr;
+  gap:22px;
+  position:relative;
+  overflow:hidden;
+}
+.footer-shell::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(148,163,184,.55) 22%, rgba(213,43,30,.88) 50%, rgba(148,163,184,.55) 78%, rgba(255,255,255,0) 100%);
+}
+.footer-brand img{height:58px;margin-bottom:14px}
+.footer-brand p,.footer-col a,.footer-col p{color:rgba(226,234,241,.78);font-size:14px;line-height:1.8;text-decoration:none;display:block;margin-bottom:8px}
+.footer-col h4{font:800 12px/1 'Barlow Condensed',sans-serif;letter-spacing:2.4px;text-transform:uppercase;color:#fff;margin-bottom:14px}
+.footer-col a:hover{color:#fff}
+
+/* SEO expansion styling added without changing the existing design */
+.services-top{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:34px}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.mini-card{
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:linear-gradient(180deg,#fff,#edf1f4);
+  padding:26px 24px;
+  box-shadow:var(--shadow-soft);
+}
+.mini-card strong{
+  display:block;
+  font:800 13px/1.2 'Barlow Condensed',sans-serif;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--red);
+  margin-bottom:10px;
+}
+.mini-card p{color:var(--muted);font-size:15px;line-height:1.75}
+.area-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.area-cloud span{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.055);
+  color:rgba(236,242,247,.82);
+  padding:0 16px;
+  font:800 12px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;
+  background:none;
+  border:none;
+  color:#18212b;
+  text-align:left;
+  padding:22px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:center;
+  font:800 18px/1.4 'Barlow Condensed',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+.faq-q span:last-child{
+  width:34px;
+  height:34px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--red);
+  font-size:20px;
+  flex-shrink:0;
+}
+.faq-a{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.8;
+  padding-bottom:22px;
+  max-width:900px;
+}
+.seo-note{
+  margin-top:22px;
+  padding:24px 26px;
+  border-left:4px solid var(--red);
+  border-radius:22px;
+  background:rgba(255,255,255,.74);
+  color:var(--muted);
+  line-height:1.8;
+  box-shadow:var(--shadow-soft);
+}
+@media (max-width:900px){
+  .nav-links,.nav-side{display:none}
+  .container{padding:0 18px}
+  .hero-copy{padding:48px 24px}
+  .content-grid,.service-list,.local-links,.footer-shell,.mini-grid{grid-template-columns:1fr}
+  .section{padding:78px 0}
+}
+</style>
+
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -14,21 +298,248 @@
   "name": "Car Craft Auto Body & Towing",
   "url": "https://carcraftautobodytowing.com/auto-body-repair-west-hartford.html",
   "telephone": "860-953-1966",
-  "areaServed": "West Hartford CT",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "8 South St",
+    "addressLocality": "West Hartford",
+    "addressRegion": "CT",
+    "postalCode": "06110",
+    "addressCountry": "US"
+  },
+  "areaServed": ["West Hartford CT", "Hartford CT", "Newington CT", "Farmington CT", "Avon CT", "Wethersfield CT", "Rocky Hill CT"],
   "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Auto Body Repair" }},
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Collision Repair" }},
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Repainting" }},
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "24 Hour Towing" }}
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Auto Body Repair" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Collision Repair" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Repainting" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bumper Repair" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dent Repair" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "24 Hour Towing" } }
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Do you offer free auto body estimates in West Hartford?","acceptedAnswer":{"@type":"Answer","text":"Yes. Car Craft Auto Body & Towing provides free estimates for collision repair, repainting, bumper repair, dent repair, scratch repair, and self-pay auto body work in West Hartford, CT."}},
+    {"@type":"Question","name":"Can I pay out of pocket instead of using insurance?","acceptedAnswer":{"@type":"Answer","text":"Yes. Many customers choose out-of-pocket auto body repair for smaller damage to avoid deductibles, claim delays, or possible insurance premium increases."}},
+    {"@type":"Question","name":"Do you help with insurance claim repairs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Car Craft Auto Body & Towing helps customers with insurance claim repairs and collision repair documentation."}},
+    {"@type":"Question","name":"What nearby areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"Car Craft Auto Body & Towing serves West Hartford, Hartford, Newington, Farmington, Avon, Wethersfield, Rocky Hill, and surrounding Connecticut towns."}}
+  ]
+}
+</script>
+
 </head>
 <body>
-<section class="container" style="padding:120px 28px 80px; max-width:1000px; margin:auto;">
-<h1>Auto Body Repair & 24 Hour Towing in West Hartford, CT</h1>
-<p>Professional auto body repair, repainting, and 24 hour towing services.</p>
-<p>Call <strong>860-953-1966</strong> or <a href="/contact.html">contact us</a>.</p>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Car Craft Auto Body home">
+      <img src="carcraft.png" alt="Car Craft Auto Body & Towing logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="index.html#work">Our Work</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="contact.html" class="btn btn-primary">Free Estimate</a></li>
+    </ul>
+    <div class="nav-side">
+      <div class="nav-phone">860-953-1966</div>
+      <div class="nav-hours">Mon–Fri 8:30 AM–4:30 PM</div>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-shell">
+      <div class="hero-copy">
+        <div class="kicker">West Hartford, CT · Auto Body Repair</div>
+        <h1 class="hero-title">AUTO BODY REPAIR <span class="accent">& TOWING</span></h1>
+        <p>Professional collision repair, repainting, dent repair, bumper repair, scratch repair, self-pay repairs, insurance claim support, and 24 hour towing in West Hartford, CT.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="contact.html">Get a Free Estimate</a>
+          <a class="btn btn-secondary" href="tel:8609531966">Call 860-953-1966</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section class="section">
+  <div class="container">
+    <div class="content-grid">
+      <div class="panel">
+        <div class="kicker">Collision & Repainting</div>
+        <h2>REPAIR WORK THAT LOOKS CLEAN, STRAIGHT, AND FINISHED.</h2>
+        <p>Car Craft Auto Body & Towing handles repairs from minor dents and scratches to collision damage, repainting, and larger body work. We help with both insurance claims and affordable out-of-pocket repairs.</p>
+        <ul class="service-list">
+          <li>Collision Repair</li>
+          <li>Car Repainting</li>
+          <li>Bumper Repair</li>
+          <li>Dent & Scratch Repair</li>
+          <li>Insurance Claims</li>
+          <li>Self-Pay Repairs</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="kicker">Free Estimates</div>
+        <h3>INSURANCE OR OUT-OF-POCKET</h3>
+        <p>Not every repair needs to go through insurance. We can provide a free estimate and help you compare your options before you decide how to move forward.</p>
+        <p>Call <strong>860-953-1966</strong> or use the contact page to request an estimate.</p>
+      </div>
+    </div>
+
+    <div class="dark-cta">
+      <h2>GET YOUR VEHICLE LOOKING RIGHT AGAIN.</h2>
+      <p>Whether you need collision repair, repainting, bumper repair, scratch repair, or towing after an accident, Car Craft Auto Body & Towing is a local West Hartford shop built on real work and local trust.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="contact.html">Request Free Estimate</a>
+        <a class="btn btn-secondary" href="24-hour-towing-west-hartford.html">24 Hour Towing</a>
+      </div>
+
+      <div class="local-links">
+        <a href="24-hour-towing-west-hartford.html">
+          <strong>24 Hour Towing West Hartford</strong>
+          <span>Emergency towing for breakdowns, accidents, and vehicle transport.</span>
+        </a>
+        <a href="index.html">
+          <strong>Back to Homepage</strong>
+          <span>View our services, before-and-after repairs, reviews, and contact options.</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="services-top">
+      <div>
+        <div class="kicker">Collision Repair Experts</div>
+        <h2 class="section-title">COMPLETE AUTO BODY<br><span class="accent">REPAIR SERVICES</span></h2>
+        <p class="section-sub">Car Craft Auto Body & Towing provides professional collision repair, repainting, dent repair, bumper repair, scratch repair, and insurance claim assistance in West Hartford, CT.</p>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="panel">
+        <h3>Collision Repair in West Hartford</h3>
+        <p>From small parking lot damage to larger collision repairs, our team helps restore vehicles with clean body lines, paint-matched finishes, and proper panel alignment.</p>
+        <p>We repair front-end damage, side damage, rear-end collisions, bumper damage, dents, scratches, fender damage, and repainting. The goal is simple: make the vehicle look right again while keeping the process straightforward for the customer.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Insurance & Self-Pay Options</h3>
+        <p>Some customers go through insurance while others prefer affordable out-of-pocket repairs for smaller damage. Car Craft Auto Body & Towing helps customers understand both options before deciding how to move forward.</p>
+        <p>We can provide free estimates for self-pay repairs involving bumper damage, scratches, dents, repainting, and minor collision damage.</p>
+      </div>
+    </div>
+
+    <div class="mini-grid">
+      <div class="mini-card">
+        <strong>Bumper Repair</strong>
+        <p>Repair support for cracked, scratched, loose, or collision-damaged bumpers after accidents, parking lot damage, and minor impacts.</p>
+      </div>
+      <div class="mini-card">
+        <strong>Dent & Scratch Repair</strong>
+        <p>Clean repair options for dents, scratches, scuffs, and visible body damage that makes the car look worn down.</p>
+      </div>
+      <div class="mini-card">
+        <strong>Auto Repainting</strong>
+        <p>Paint repair and repainting support for panels, collision damage, refinishing, and matching the vehicle’s appearance.</p>
+      </div>
+    </div>
+
+    <div class="seo-note">
+      Looking for auto body repair near West Hartford, collision repair near Hartford, bumper repair in Hartford County, or self-pay auto body repair in Connecticut? Car Craft Auto Body & Towing is located in West Hartford and helps local drivers with free estimates, insurance-friendly repair support, and practical repair options.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="dark-cta">
+      <div class="kicker">Areas We Serve</div>
+      <h2>SERVING WEST HARTFORD<br>& SURROUNDING AREAS</h2>
+      <p>Car Craft Auto Body & Towing proudly serves drivers throughout West Hartford, Hartford, Newington, Farmington, Avon, Wethersfield, Rocky Hill, and surrounding Connecticut communities.</p>
+      <p>Whether you need collision repair, repainting, bumper repair, dent repair, scratch repair, insurance claim support, or towing after an accident, our team is here to help.</p>
+      <div class="area-cloud">
+        <span>West Hartford</span>
+        <span>Hartford</span>
+        <span>Newington</span>
+        <span>Farmington</span>
+        <span>Avon</span>
+        <span>Wethersfield</span>
+        <span>Rocky Hill</span>
+        <span>Hartford County</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="contact.html">Request Free Estimate</a>
+        <a class="btn btn-secondary" href="tel:8609531966">Call 860-953-1966</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container">
+    <div class="services-top">
+      <div>
+        <div class="kicker">FAQ</div>
+        <h2 class="section-title">AUTO BODY REPAIR<br><span class="accent">QUESTIONS</span></h2>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>Do you offer free auto body estimates?</span><span>+</span></button>
+        <div class="faq-a">Yes. Car Craft Auto Body & Towing provides free estimates for collision repair, repainting, bumper repair, dent repair, scratch repair, and self-pay auto body work.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>Can I pay out of pocket instead of using insurance?</span><span>+</span></button>
+        <div class="faq-a">Yes. Many customers choose self-pay repairs for smaller damage to avoid deductibles, claim delays, or possible insurance premium increases. We can help you understand the repair options before you decide.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>Do you help with insurance repairs?</span><span>+</span></button>
+        <div class="faq-a">Yes. We help customers with insurance claim repairs, collision repair documentation, and next steps after an accident.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>What areas do you serve?</span><span>+</span></button>
+        <div class="faq-a">We serve West Hartford, Hartford, Newington, Farmington, Wethersfield, Avon, Rocky Hill, and surrounding Connecticut towns.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-shell">
+      <div class="footer-brand">
+        <img src="carcraft.png" alt="Car Craft Auto Body & Towing">
+        <p>Car Craft Auto Body & Towing provides collision repair, repainting, self-pay auto body work, and 24 hour towing in West Hartford, CT.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="auto-body-repair-west-hartford.html">Auto Body Repair</a>
+        <a href="24-hour-towing-west-hartford.html">24 Hour Towing</a>
+        <a href="index.html#self-pay-repairs">Self-Pay Repairs</a>
+        <a href="contact.html">Free Estimates</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>8 South St<br>West Hartford, CT 06110</p>
+        <a href="tel:8609531966">860-953-1966</a>
+        <p>Mon–Fri: 8:30 AM – 4:30 PM</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

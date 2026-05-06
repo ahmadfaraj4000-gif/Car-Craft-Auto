@@ -929,7 +929,115 @@ footer{padding:30px 0 46px}
 .cash-repair-list li{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.72);padding:14px 16px;color:var(--silver);font:800 12px/1.4 'Barlow Condensed',sans-serif;letter-spacing:1.6px;text-transform:uppercase}
 @media (max-width: 1180px){.cash-repair-panel{grid-template-columns:1fr}.cash-repair-list{grid-template-columns:1fr}}
 @media (max-width: 860px){.nav-side{display:none}.hero-hours{display:flex;align-items:flex-start;border-radius:16px;line-height:1.45}.cash-repair-panel{padding:26px 20px}}
+/* ── LOCAL SEO LINKS ── */
+.local-seo-links{
+  padding:20px 0 10px;
+}
 
+.local-link-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:20px;
+}
+
+.local-link-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  padding:24px 24px;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.08);
+
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,.04),
+      rgba(255,255,255,.02)
+    ),
+    linear-gradient(135deg,
+      rgba(20,27,36,.98),
+      rgba(10,14,19,.98)
+    );
+
+  box-shadow:0 16px 34px rgba(0,0,0,.12);
+
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease;
+}
+
+.local-link-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(213,43,30,.35);
+}
+
+.local-link-no{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:48px;
+  line-height:1;
+  color:rgba(255,255,255,.08);
+  margin-bottom:10px;
+}
+
+.local-link-card h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;
+  line-height:.96;
+  letter-spacing:.5px;
+  color:#ffffff;
+  margin-bottom:10px;
+}
+
+.local-link-card p{
+  color:rgba(236,242,247,.72);
+  line-height:1.7;
+  font-size:14px;
+  max-width:520px;
+}
+
+.local-link-cta{
+  display:inline-flex;
+  margin-top:14px;
+
+  font:800 10px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:2px;
+  text-transform:uppercase;
+
+  color:var(--red);
+}
+
+/* make heading smaller ONLY for this section */
+.local-seo-links .section-title{
+  font-size:clamp(46px,5vw,74px);
+  margin-bottom:10px;
+}
+
+.local-seo-links .section-sub{
+  max-width:720px;
+  font-size:15px;
+  line-height:1.7;
+}
+
+.local-seo-links .services-top{
+  margin-bottom:18px;
+}
+
+@media (max-width:860px){
+
+  .local-link-grid{
+    grid-template-columns:1fr;
+  }
+
+  .local-link-card{
+    padding:22px 18px;
+  }
+
+  .local-link-card h3{
+    font-size:24px;
+  }
+
+}
 </style>
 </head>
 <body>
@@ -1322,16 +1430,54 @@ footer{padding:30px 0 46px}
     </div>
   </div>
 </section>
-<section style="padding:40px 0; text-align:center; font-size:14px; color:#5f6975;">
+<!-- ══ LOCAL SEO PAGES ══ -->
+<section class="section local-seo-links">
   <div class="container">
 
-    <a href="/auto-body-repair-west-hartford.html" style="margin:0 12px;">
-      Auto Body Repair West Hartford
-    </a>
+    <div class="services-top">
+      <div>
+        <div class="kicker">West Hartford Local Services</div>
+        <h2 class="section-title">
+          LOCAL EXPERTISE.<br>
+          <span class="accent">REAL SERVICE.</span>
+        </h2>
+        <p class="section-sub">
+          Serving West Hartford, Hartford, Newington, Farmington, and surrounding Connecticut areas with trusted auto body repair, collision repair, repainting, and 24 hour towing services.
+        </p>
+      </div>
+    </div>
 
-    <a href="/24-hour-towing-west-hartford.html" style="margin:0 12px;">
-      24 Hour Towing West Hartford
-    </a>
+    <div class="local-link-grid">
+
+      <a href="/auto-body-repair-west-hartford.html" class="local-link-card">
+        <div class="local-link-no">01</div>
+
+        <h3>Auto Body Repair in West Hartford</h3>
+
+        <p>
+          Collision repair, repainting, dent repair, bumper repair, and affordable out-of-pocket auto body work.
+        </p>
+
+        <span class="local-link-cta">
+          View Service Page →
+        </span>
+      </a>
+
+      <a href="/24-hour-towing-west-hartford.html" class="local-link-card">
+        <div class="local-link-no">02</div>
+
+        <h3>24 Hour Towing in West Hartford</h3>
+
+        <p>
+          Fast towing response for accidents, breakdowns, emergency roadside situations, and vehicle transport.
+        </p>
+
+        <span class="local-link-cta">
+          View Service Page →
+        </span>
+      </a>
+
+    </div>
 
   </div>
 </section>
