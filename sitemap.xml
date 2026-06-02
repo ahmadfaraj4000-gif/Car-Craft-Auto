@@ -2,38 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.carcraftautobodytowing.com/</loc>
+    <loc>https://carcraftautobodytowing.com/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.carcraftautobodytowing.com/contact.html</loc>
+    <loc>https://carcraftautobodytowing.com/contact.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.carcraftautobodytowing.com/inventory.html</loc>
+    <loc>https://carcraftautobodytowing.com/inventory.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.carcraftautobodytowing.com/auto-body-repair-west-hartford.html</loc>
+    <loc>https://carcraftautobodytowing.com/auto-body-repair-west-hartford.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://www.carcraftautobodytowing.com/24-hour-towing-west-hartford.html</loc>
+    <loc>https://carcraftautobodytowing.com/24-hour-towing-west-hartford.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://carcraftautobodytowing.com/our-services.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://carcraftautobodytowing.com/customer-testimonials.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
 
 </urlset>
