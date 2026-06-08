@@ -1258,67 +1258,67 @@ footer{padding:30px 0 46px}
   line-height:1;
 }
 .rentmect-close:hover{border-color:rgba(213,43,30,.35);color:var(--red)}
-.rentmect-side-banner{
-  position:fixed;
-  right:18px;
-  bottom:24px;
-  z-index:750;
-  width:300px;
-  border:1px solid rgba(213,43,30,.24);
-  border-radius:22px;
-  background:rgba(255,255,255,.96);
-  box-shadow:0 18px 50px rgba(15,23,42,.18);
-  padding:18px;
-  color:var(--text);
-  backdrop-filter:blur(14px);
+.rental-help-panel{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+  align-items:center;
+  border:1px solid rgba(213,43,30,.20);
+  border-radius:28px;
+  background:linear-gradient(135deg,#ffffff,#f4f6f8);
+  box-shadow:var(--shadow-soft);
+  padding:42px;
 }
-.rentmect-banner-kicker{
-  color:var(--red);
-  font:900 11px/1 'Barlow Condensed',sans-serif;
-  letter-spacing:2.5px;
-  text-transform:uppercase;
-  margin-bottom:8px;
+.rental-help-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.72);
+  padding:24px;
 }
-.rentmect-side-banner h3{
+.rental-help-card h3{
   font-family:'Bebas Neue',sans-serif;
-  font-size:30px;
+  font-size:44px;
   line-height:.95;
-  letter-spacing:1px;
-  margin:0 0 8px;
+  letter-spacing:1.2px;
+  margin-bottom:12px;
 }
-.rentmect-side-banner p{
-  color:var(--muted);
-  font:600 14px/1.45 'Barlow',sans-serif;
-  margin:0 0 14px;
+.rental-help-card p{color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:18px}
+.rental-interest-box{
+  margin-top:18px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#f8fafc;
 }
-.rentmect-banner-actions{display:flex;gap:8px}
-.rentmect-mini-btn{
+.rental-interest-options{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.rental-interest-options label{
   display:inline-flex;
   align-items:center;
-  justify-content:center;
-  min-height:40px;
-  flex:1;
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:#f8fafc;
-  color:var(--text);
-  text-decoration:none;
-  cursor:pointer;
-  font:900 12px/1 'Barlow Condensed',sans-serif;
-  letter-spacing:1.8px;
+  gap:8px;
+  color:var(--silver);
+  font:800 12px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:1.6px;
   text-transform:uppercase;
 }
-.rentmect-mini-btn.primary{
-  border-color:rgba(213,43,30,.22);
-  background:var(--red);
-  color:#fff;
+.rental-interest-options input{width:auto}
+.rental-followup-note{
+  display:none;
+  margin-top:12px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
 }
+.rental-followup-note.active{display:block}
 @media(max-width:1024px){
-  .damage-ai-header,.damage-ai-card{grid-template-columns:1fr}
+  .damage-ai-header,.damage-ai-card,.rental-help-panel{grid-template-columns:1fr}
   .damage-ai-side{border-left:0;border-top:1px solid var(--line)}
 }
 @media(max-width:700px){
-  body{padding-bottom:138px}
   .damage-ai-shell{padding:70px 18px}
   .damage-ai-main,.damage-ai-side{padding:22px}
   .damage-ai-badges,.damage-form-row{grid-template-columns:1fr}
@@ -1326,21 +1326,8 @@ footer{padding:30px 0 46px}
   .damage-actions{flex-direction:column}
   .rentmect-modal-inner{padding:32px 22px 24px}
   .rentmect-modal-actions{flex-direction:column}
-  .rentmect-side-banner{
-    left:10px;
-    right:10px;
-    bottom:10px;
-    transform:none;
-    width:auto;
-    grid-template-columns:1fr;
-    gap:10px;
-    padding:13px;
-    border-radius:18px;
-  }
-  .rentmect-banner-kicker{font-size:10px;margin-bottom:5px}
-  .rentmect-side-banner h3{font-size:24px}
-  .rentmect-side-banner p{font-size:13px}
-  .rentmect-mini-btn{min-height:38px;font-size:11px}
+  .rental-help-panel{padding:26px 20px;border-radius:22px}
+  .rental-interest-options{display:grid}
 }
 </style>
 </head>
@@ -1481,6 +1468,14 @@ footer{padding:30px 0 46px}
             </label>
             <input class="damage-file-input" id="damagePhotos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
             <div class="damage-preview-grid" id="damagePreviewGrid"></div>
+            <div class="rental-interest-box">
+              <label class="form-label">Interested in a rental vehicle?</label>
+              <div class="rental-interest-options">
+                <label><input type="radio" name="rentalVehicleInterest" value="yes"> Yes, I am interested</label>
+                <label><input type="radio" name="rentalVehicleInterest" value="no" checked> No thanks</label>
+              </div>
+              <div class="rental-followup-note" id="rentalVehicleNote">If you plan on having your vehicle worked on, you can book a rental at <a href="https://rentmect.com" target="_blank" rel="noopener">rentmect.com</a>. Car Craft can help coordinate having it brought to the shop for you.</div>
+            </div>
           </div>
 
           <div class="damage-actions">
@@ -1811,6 +1806,31 @@ footer{padding:30px 0 46px}
   </div>
 </section>
 
+<section class="section" id="rental-help">
+  <div class="container">
+    <div class="rental-help-panel">
+      <div>
+        <div class="kicker">Rental Car Help</div>
+        <h2 class="section-title">STAY MOVING<br><span class="accent">DURING REPAIRS</span></h2>
+        <p class="section-sub">If your vehicle will be in the shop, Car Craft can help coordinate a rental vehicle through RentMect so pickup is simpler when you drop off your car.</p>
+        <div class="hero-actions" style="margin-top:24px;margin-bottom:0">
+          <a class="btn btn-primary" href="https://rentmect.com" target="_blank" rel="noopener">Book at RentMect.com</a>
+          <a class="btn btn-secondary" href="#estimate">Submit Repair Photos</a>
+        </div>
+      </div>
+      <div class="rental-help-card">
+        <h3>Need wheels while yours is being repaired?</h3>
+        <p>Customers can reserve through RentMect before or during repair planning. If you move forward with Car Craft, we can help coordinate having the rental brought to the shop for you.</p>
+        <ul class="rentmect-perk-list">
+          <li><strong>◆</strong><span>Helpful for collision repairs, insurance work, and longer body shop jobs.</span></li>
+          <li><strong>◆</strong><span>Book directly at RentMect.com and let us know during your estimate request.</span></li>
+          <li><strong>◆</strong><span>We can help line up the rental around your vehicle drop-off.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ LOCAL SEO PAGES ══ -->
 <section class="section local-seo-links">
   <div class="container">
@@ -1882,16 +1902,6 @@ footer{padding:30px 0 46px}
     </div>
   </div>
 </div>
-
-<aside class="rentmect-side-banner" id="rentmectBanner" aria-label="RentMect rental car information">
-  <div class="rentmect-banner-kicker">Rental Partner</div>
-  <h3>Need wheels during repair?</h3>
-  <p>Check RentMect and we can help coordinate a rental car at the shop.</p>
-  <div class="rentmect-banner-actions">
-    <button class="rentmect-mini-btn" type="button" data-rentmect-open>Learn More</button>
-    <a class="rentmect-mini-btn primary" href="https://rentmect.com" target="_blank" rel="noopener">RentMect</a>
-  </div>
-</aside>
 
 <footer>
   <div class="container">

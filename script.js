@@ -39,6 +39,7 @@ function initEstimateModal() {
   const previewGrid = document.getElementById('damagePreviewGrid')
   const errorBox = document.getElementById('damageEstimatorError')
   const successBox = document.getElementById('damageEstimatorSuccess')
+  const rentalNote = document.getElementById('rentalVehicleNote')
   let currentStep = 1
   let files = []
 
@@ -150,8 +151,14 @@ function initEstimateModal() {
       damageType: document.getElementById('damageType').value.trim(),
       severity: document.getElementById('damageSeverity').value,
       description: document.getElementById('damageDescription').value.trim(),
+      rentalVehicleInterest: document.querySelector('input[name="rentalVehicleInterest"]:checked')?.value === 'yes',
       photos
     }
+  }
+
+  function updateRentalNote() {
+    const wantsRental = document.querySelector('input[name="rentalVehicleInterest"]:checked')?.value === 'yes'
+    rentalNote?.classList.toggle('active', wantsRental)
   }
 
   openButtons.forEach((button) => {
@@ -174,6 +181,9 @@ function initEstimateModal() {
   })
 
   fileInput.addEventListener('change', () => addFiles(fileInput.files))
+  document.querySelectorAll('input[name="rentalVehicleInterest"]').forEach((field) => {
+    field.addEventListener('change', updateRentalNote)
+  })
   dropZone.addEventListener('click', () => fileInput.click())
   dropZone.addEventListener('dragover', (event) => {
     event.preventDefault()
@@ -212,6 +222,7 @@ function initEstimateModal() {
     }
   })
 
+  updateRentalNote()
   renderStep()
 }
 
@@ -222,7 +233,6 @@ function initRentmectPromo() {
   const storageKey = 'carcraftRentmectPromoSeen'
   const openButtons = document.querySelectorAll('[data-rentmect-open]')
   const closeButtons = document.querySelectorAll('[data-rentmect-close]')
-  const mobileQuery = window.matchMedia('(max-width: 700px)')
   let firstVisitTimer
 
   function hasSeenPromo() {
@@ -273,7 +283,7 @@ function initRentmectPromo() {
     }
   })
 
-  if (!hasSeenPromo() && !mobileQuery.matches) {
+  if (!hasSeenPromo()) {
     firstVisitTimer = window.setTimeout(openPromo, 1200)
   }
 }
