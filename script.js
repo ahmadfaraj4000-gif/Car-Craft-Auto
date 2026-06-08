@@ -215,4 +215,68 @@ function initEstimateModal() {
   renderStep()
 }
 
+function initRentmectPromo() {
+  const modal = document.getElementById('rentmectModal')
+  if (!modal) return
+
+  const storageKey = 'carcraftRentmectPromoSeen'
+  const openButtons = document.querySelectorAll('[data-rentmect-open]')
+  const closeButtons = document.querySelectorAll('[data-rentmect-close]')
+  const mobileQuery = window.matchMedia('(max-width: 700px)')
+  let firstVisitTimer
+
+  function hasSeenPromo() {
+    try {
+      return window.localStorage.getItem(storageKey) === 'true'
+    } catch (error) {
+      return false
+    }
+  }
+
+  function rememberPromoSeen() {
+    try {
+      window.localStorage.setItem(storageKey, 'true')
+    } catch (error) {
+      // Browsers can block localStorage in private modes. The promo still works without it.
+    }
+  }
+
+  function openPromo() {
+    window.clearTimeout(firstVisitTimer)
+    modal.classList.add('active')
+    modal.setAttribute('aria-hidden', 'false')
+    document.body.style.overflow = 'hidden'
+  }
+
+  function closePromo() {
+    modal.classList.remove('active')
+    modal.setAttribute('aria-hidden', 'true')
+    document.body.style.overflow = ''
+    rememberPromoSeen()
+  }
+
+  openButtons.forEach((button) => {
+    button.addEventListener('click', openPromo)
+  })
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', closePromo)
+  })
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) closePromo()
+  })
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('active')) {
+      closePromo()
+    }
+  })
+
+  if (!hasSeenPromo() && !mobileQuery.matches) {
+    firstVisitTimer = window.setTimeout(openPromo, 1200)
+  }
+}
+
 document.addEventListener('DOMContentLoaded', initEstimateModal)
+document.addEventListener('DOMContentLoaded', initRentmectPromo)
