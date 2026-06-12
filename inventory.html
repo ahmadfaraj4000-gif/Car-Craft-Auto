@@ -246,6 +246,7 @@ nav{
   background:linear-gradient(180deg,var(--panel),var(--panel-3));
   box-shadow:var(--shadow-soft);
 }
+.inventory-card.featured{border-color:rgba(213,43,30,.26);box-shadow:0 18px 42px rgba(213,43,30,.10), var(--shadow-soft)}
 .inventory-media{position:relative;height:260px;overflow:hidden}
 .inventory-media img{width:100%;height:100%;object-fit:cover}
 .inventory-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.68))}
@@ -274,6 +275,17 @@ nav{
   font:800 10px/1 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;
 }
 .card-actions{display:flex;gap:10px;flex-wrap:wrap}
+.inventory-message{
+  grid-column:1/-1;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:linear-gradient(180deg,var(--panel),var(--panel-3));
+  box-shadow:var(--shadow-soft);
+  padding:28px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.75;
+}
 
 .address-wrap{
   margin-top:32px;
@@ -618,92 +630,12 @@ footer{padding:30px 0 46px}
 <section class="section">
   <div class="container">
     <div class="kicker">Inventory</div>
-    <h2 class="section-title">CURRENT PLACEHOLDER<br><span class="accent">VEHICLES FOR SALE</span></h2>
+    <h2 class="section-title">CURRENT<br><span class="accent">VEHICLES FOR SALE</span></h2>
     <p class="section-sub">Browse available vehicles and call for current pricing and availability. The shop is open Monday through Friday from 8:30 AM to 4:30 PM.</p>
     <div class="hero-hours">Open Mon–Fri: 8:30 AM – 4:30 PM · Call 860-953-1966</div>
 
-    <div class="inventory-grid">
-
-      <!-- GMC Sierra -->
-      <article class="inventory-card">
-        <div class="inventory-media">
-          <img src="assets/images/inventory/inventory-gmc-sierra.png" alt="2019 GMC Sierra for sale">
-          <div class="inventory-price">$17,995</div>
-        </div>
-        <div class="inventory-copy">
-          <h3>2019 GMC Sierra</h3>
-          <p>White GMC Sierra available now. Strong work truck with full-size capability.</p>
-          <div class="inventory-specs">
-            <div class="inventory-spec">Pickup</div>
-            <div class="inventory-spec">White</div>
-            <div class="inventory-spec">Salvage</div>
-          </div>
-          <div class="card-actions">
-            <a class="btn btn-primary" href="tel:8609531966">Call Now</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Chevy Colorado -->
-      <article class="inventory-card">
-        <div class="inventory-media">
-          <img src="assets/images/inventory/inventory-chevy-colorado.png" alt="2019 Chevy Colorado for sale">
-          <div class="inventory-price">$13,900</div>
-        </div>
-        <div class="inventory-copy">
-          <h3>2019 Chevy Colorado</h3>
-          <p>White Chevy Colorado available now. Mid-size pickup with practical size and utility.</p>
-          <div class="inventory-specs">
-            <div class="inventory-spec">Pickup</div>
-            <div class="inventory-spec">White</div>
-            <div class="inventory-spec">Chevy</div>
-          </div>
-          <div class="card-actions">
-            <a class="btn btn-primary" href="tel:8609531966">Call Now</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Pontiac -->
-      <article class="inventory-card">
-        <div class="inventory-media">
-          <img src="assets/images/inventory/inventory-pontiac.png" alt="2010 Pontiac for sale">
-          <div class="inventory-price">$4,995</div>
-        </div>
-        <div class="inventory-copy">
-          <h3>2010 Pontiac</h3>
-          <p>Affordable blue Pontiac available now. Budget-friendly transportation option.</p>
-          <div class="inventory-specs">
-            <div class="inventory-spec">Sedan</div>
-            <div class="inventory-spec">Blue</div>
-            <div class="inventory-spec">Affordable</div>
-          </div>
-          <div class="card-actions">
-            <a class="btn btn-primary" href="tel:8609531966">Call Now</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Honda Civic -->
-      <article class="inventory-card">
-        <div class="inventory-media">
-          <img src="assets/images/inventory/inventory-honda-civic.png" alt="2012 Honda Civic for sale">
-          <div class="inventory-price">$6,500</div>
-        </div>
-        <div class="inventory-copy">
-          <h3>2012 Honda Civic</h3>
-          <p>Black Honda Civic available now. Reliable, fuel-efficient, and great everyday transportation.</p>
-          <div class="inventory-specs">
-            <div class="inventory-spec">Sedan</div>
-            <div class="inventory-spec">Black</div>
-            <div class="inventory-spec">Honda</div>
-          </div>
-          <div class="card-actions">
-            <a class="btn btn-primary" href="tel:8609531966">Call Now</a>
-          </div>
-        </div>
-      </article>
-
+    <div class="inventory-grid" id="inventoryGrid" aria-live="polite">
+      <div class="inventory-message">Loading current inventory...</div>
     </div>
 
     <div class="address-wrap">
@@ -763,11 +695,100 @@ footer{padding:30px 0 46px}
 </footer>
 
 <script>
+window.CARCRAFT_CONVEX_URL = window.CARCRAFT_CONVEX_URL || 'https://elated-bee-109.convex.cloud';
+
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
   const burger = document.querySelector('.hamburger');
   const isOpen = menu.classList.toggle('open');
   if (burger) burger.setAttribute('aria-expanded', String(isOpen));
+}
+
+function escapeHtml(value) {
+  return String(value || '').replace(/[&<>"']/g, function (char) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char];
+  });
+}
+
+function renderInventoryMessage(message) {
+  const grid = document.getElementById('inventoryGrid');
+  if (!grid) return;
+  grid.innerHTML = '<div class="inventory-message">' + escapeHtml(message) + '</div>';
+}
+
+function vehicleTitle(car) {
+  return [car.year, car.make, car.model].filter(Boolean).join(' ') || 'Vehicle';
+}
+
+function vehicleSpecs(car) {
+  return [
+    car.mileage || 'Mileage TBD',
+    car.color || 'Color TBD',
+    car.bodyType,
+    car.transmission,
+    car.titleStatus,
+    car.status ? String(car.status).replaceAll('_', ' ') : ''
+  ].filter(Boolean).slice(0, 5);
+}
+
+function renderInventory(vehicles) {
+  const grid = document.getElementById('inventoryGrid');
+  if (!grid) return;
+
+  if (!vehicles.length) {
+    renderInventoryMessage('No active inventory is published right now. Call 860-953-1966 for availability.');
+    return;
+  }
+
+  grid.innerHTML = vehicles.map(function (car) {
+    const title = vehicleTitle(car);
+    const image = car.photos && car.photos[0] && car.photos[0].url ? car.photos[0].url : 'assets/images/branding/carcraft-storefront.png';
+    const specs = vehicleSpecs(car).map(function (spec) {
+      return '<div class="inventory-spec">' + escapeHtml(spec) + '</div>';
+    }).join('');
+
+    return [
+      '<article class="inventory-card' + (car.featured ? ' featured' : '') + '">',
+        '<div class="inventory-media">',
+          '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(title) + ' for sale">',
+          '<div class="inventory-price">' + escapeHtml(car.price || 'Call for Price') + '</div>',
+        '</div>',
+        '<div class="inventory-copy">',
+          '<h3>' + escapeHtml(title) + '</h3>',
+          '<p>' + escapeHtml(car.description || 'Contact Car Craft for details about this vehicle.') + '</p>',
+          '<div class="inventory-specs">' + specs + '</div>',
+          '<div class="card-actions"><a class="btn btn-primary" href="tel:8609531966">Call Now</a></div>',
+        '</div>',
+      '</article>'
+    ].join('');
+  }).join('');
+}
+
+async function loadInventory() {
+  try {
+    const response = await fetch(window.CARCRAFT_CONVEX_URL.replace(/\/$/, '') + '/api/query', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        path: 'inventory:publicList',
+        args: { showSold: false },
+        format: 'json'
+      })
+    });
+    const data = await response.json();
+    if (!response.ok || data.error) {
+      throw new Error(data.error && data.error.message ? data.error.message : 'Inventory request failed.');
+    }
+    renderInventory(data.value || []);
+  } catch (error) {
+    renderInventoryMessage('Inventory is temporarily unavailable online. Please call 860-953-1966 for current vehicle availability.');
+  }
 }
 
 function copyAddress(){
@@ -799,6 +820,8 @@ function fallbackCopyAddress(text){
   }
   document.body.removeChild(area);
 }
+
+loadInventory();
 </script>
 
 </body>
