@@ -131,8 +131,11 @@ function initEstimateModal() {
   }
 
   function addFiles(fileList) {
-    const allowed = ['image/jpeg', 'image/png', 'image/webp']
-    const incoming = Array.from(fileList || []).filter((file) => allowed.includes(file.type))
+    const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif']
+    const incoming = Array.from(fileList || []).filter((file) => {
+      const name = String(file.name || '').toLowerCase()
+      return allowed.includes(file.type) || file.type.startsWith('image/') || /\.(jpe?g|png|webp|heic|heif)$/.test(name)
+    })
     files = files.concat(incoming).slice(0, 8)
     fileInput.value = ''
     renderPreviews()
@@ -202,7 +205,6 @@ function initEstimateModal() {
   document.querySelectorAll('input[name="rentalVehicleInterest"]').forEach((field) => {
     field.addEventListener('change', updateRentalNote)
   })
-  dropZone.addEventListener('click', () => fileInput.click())
   dropZone.addEventListener('dragover', (event) => {
     event.preventDefault()
     dropZone.classList.add('dragging')

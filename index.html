@@ -1182,7 +1182,7 @@ footer{padding:30px 0 46px}
 .damage-upload-zone.dragging{background:rgba(213,43,30,.13);border-color:var(--red)}
 .damage-upload-title{font:800 22px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:2px;color:var(--text);margin-bottom:10px}
 .damage-upload-sub{color:var(--muted);line-height:1.6}
-.damage-file-input{display:none}
+.damage-file-input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
 .damage-preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:12px;margin-top:18px}
 .damage-preview{position:relative;aspect-ratio:1/1;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#eef2f5}
 .damage-preview img{width:100%;height:100%;object-fit:cover}
@@ -1482,9 +1482,9 @@ footer{padding:30px 0 46px}
             <h3 class="damage-step-title">Photo Upload</h3>
             <label class="damage-upload-zone" id="damageDropZone" for="damagePhotos">
               <div class="damage-upload-title">Drag photos here or click to upload</div>
-              <div class="damage-upload-sub">Upload clear JPG, PNG, or WEBP photos from multiple angles. Close-up and wide shots work best.</div>
+              <div class="damage-upload-sub">Upload clear photos from multiple angles. JPG, PNG, WEBP, HEIC, and HEIF files are accepted.</div>
             </label>
-            <input class="damage-file-input" id="damagePhotos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+            <input class="damage-file-input" id="damagePhotos" type="file" accept="image/*,.heic,.heif" multiple>
             <div class="damage-preview-grid" id="damagePreviewGrid"></div>
             <div class="rental-interest-box">
               <label class="form-label">Interested in a rental vehicle?</label>
