@@ -26,6 +26,24 @@ async function convexMutation(path, args) {
   return data.value
 }
 
+async function convexAction(path, args) {
+  if (!CARCRAFT_CONVEX_URL) {
+    throw new Error('Convex URL is not configured. Set window.CARCRAFT_CONVEX_URL before script.js.')
+  }
+
+  const response = await fetch(`${CARCRAFT_CONVEX_URL.replace(/\/$/, '')}/api/action`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ path, args, format: 'json' })
+  })
+
+  const data = await response.json()
+  if (!response.ok || data.error) {
+    throw new Error(data.error?.message || data.error || 'Convex request failed.')
+  }
+  return data.value
+}
+
 function initEstimateModal() {
   const form = document.getElementById('damageEstimatorForm')
   if (!form) return
@@ -207,7 +225,7 @@ function initEstimateModal() {
 
     try {
       const photos = await uploadFiles()
-      await convexMutation('estimateLeads:create', getPayload(photos))
+      await convexAction('estimateLeads:createWithNotification', getPayload(photos))
       form.reset()
       files = []
       currentStep = 1
