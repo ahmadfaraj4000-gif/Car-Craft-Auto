@@ -205,12 +205,6 @@ function initEstimateModal() {
   document.querySelectorAll('input[name="rentalVehicleInterest"]').forEach((field) => {
     field.addEventListener('change', updateRentalNote)
   })
-  dropZone.addEventListener('click', () => fileInput.click())
-  dropZone.addEventListener('keydown', (event) => {
-    if (event.key !== 'Enter' && event.key !== ' ') return
-    event.preventDefault()
-    fileInput.click()
-  })
   dropZone.addEventListener('dragover', (event) => {
     event.preventDefault()
     dropZone.classList.add('dragging')
