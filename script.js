@@ -173,6 +173,7 @@ function initEstimateModal() {
       severity: document.getElementById('damageSeverity').value,
       description: document.getElementById('damageDescription').value.trim(),
       rentalVehicleInterest: document.querySelector('input[name="rentalVehicleInterest"]:checked')?.value === 'yes',
+      towAssistanceInterest: document.querySelector('input[name="towAssistanceInterest"]:checked')?.value === 'yes',
       photos
     }
   }

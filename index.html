@@ -1306,6 +1306,37 @@ footer{padding:30px 0 46px}
   border-radius:16px;
   background:#f8fafc;
 }
+.customer-help-box{
+  margin-top:20px;
+  padding:18px;
+  border:1px solid rgba(213,43,30,.18);
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff,#f8fafc);
+}
+.customer-help-title{
+  font:900 22px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--text);
+  margin-bottom:6px;
+}
+.customer-help-sub{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+  margin-bottom:14px;
+}
+.customer-help-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.customer-help-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  padding:16px;
+}
 .rental-interest-options{
   display:flex;
   gap:12px;
@@ -1343,6 +1374,7 @@ footer{padding:30px 0 46px}
   .rentmect-modal-inner{padding:32px 22px 24px}
   .rentmect-modal-actions{flex-direction:column}
   .rental-help-panel{padding:26px 20px;border-radius:22px}
+  .customer-help-grid{grid-template-columns:1fr}
   .rental-interest-options{display:grid}
 }
 </style>
@@ -1486,13 +1518,26 @@ footer{padding:30px 0 46px}
             </label>
             <input class="damage-file-input" id="damagePhotos" type="file" accept="image/*,.heic,.heif" multiple>
             <div class="damage-preview-grid" id="damagePreviewGrid"></div>
-            <div class="rental-interest-box">
-              <label class="form-label">Interested in a rental vehicle?</label>
-              <div class="rental-interest-options">
-                <label><input type="radio" name="rentalVehicleInterest" value="yes"> Yes, I am interested</label>
-                <label><input type="radio" name="rentalVehicleInterest" value="no" checked> No thanks</label>
+            <div class="customer-help-box">
+              <div class="customer-help-title">Additional Help</div>
+              <div class="customer-help-sub">Let us know if you need help staying mobile or getting the vehicle to the shop.</div>
+              <div class="customer-help-grid">
+                <div class="customer-help-card">
+                  <label class="form-label">Need rental assistance?</label>
+                  <div class="rental-interest-options">
+                    <label><input type="radio" name="rentalVehicleInterest" value="yes"> Yes, please help</label>
+                    <label><input type="radio" name="rentalVehicleInterest" value="no" checked> No thanks</label>
+                  </div>
+                  <div class="rental-followup-note" id="rentalVehicleNote">Car Craft can help arrange a rental vehicle around your repair and vehicle drop-off.</div>
+                </div>
+                <div class="customer-help-card">
+                  <label class="form-label">Need a tow for your vehicle?</label>
+                  <div class="rental-interest-options">
+                    <label><input type="radio" name="towAssistanceInterest" value="yes"> Yes, I need a tow</label>
+                    <label><input type="radio" name="towAssistanceInterest" value="no" checked> No thanks</label>
+                  </div>
+                </div>
               </div>
-              <div class="rental-followup-note" id="rentalVehicleNote">If you plan on having your vehicle worked on, you can book a rental at <a href="https://rentmect.com" target="_blank" rel="noopener">rentmect.com</a>. Car Craft can help coordinate having it brought to the shop for you.</div>
             </div>
           </div>
 
@@ -1915,14 +1960,14 @@ footer{padding:30px 0 46px}
     <div class="rentmect-modal-inner">
       <div class="rentmect-eyebrow">Rental Car Help</div>
       <h2 id="rentmectTitle">Need a car while yours is in the shop?</h2>
-      <p>Car Craft works with RentMect to help customers stay moving during repairs. If you are worried about being without a vehicle, you can check rental options through our affiliate and we can help coordinate the pickup at our shop.</p>
+      <p>Car Craft works with a rental company to help customers stay moving during repairs. If you are worried about being without a vehicle, we can help arrange a rental around your repair and vehicle drop-off.</p>
       <ul class="rentmect-perk-list">
-        <li><strong>◆</strong><span>Reserve through RentMect before or during your repair.</span></li>
-        <li><strong>◆</strong><span>Car Craft can help have the rental ready at the shop when your vehicle is dropped off.</span></li>
+        <li><strong>◆</strong><span>Rental help can be coordinated before or during your repair.</span></li>
+        <li><strong>◆</strong><span>Car Craft can help arrange the rental around your vehicle drop-off.</span></li>
         <li><strong>◆</strong><span>Great for collision repairs, insurance work, and longer body shop jobs.</span></li>
       </ul>
       <div class="rentmect-modal-actions">
-        <a class="btn btn-primary" href="https://rentmect.com" target="_blank" rel="noopener" data-rentmect-close>Visit RentMect</a>
+        <a class="btn btn-primary" href="#estimate" data-rentmect-close>Request Rental Help</a>
         <button class="btn btn-secondary" type="button" data-rentmect-close>No Thanks</button>
       </div>
     </div>
