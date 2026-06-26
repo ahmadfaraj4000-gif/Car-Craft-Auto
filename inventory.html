@@ -251,10 +251,12 @@ nav{
 .inventory-media img{width:100%;height:100%;object-fit:cover}
 .inventory-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.68))}
 .inventory-price{
-  position:absolute;left:16px;bottom:16px;
-  padding:9px 13px;border-radius:999px;
-  background:rgba(213,43,30,.92);color:#18212b;
-  font:800 12px/1 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;
+  position:absolute;left:18px;bottom:18px;z-index:2;
+  padding:12px 16px;border-radius:999px;
+  background:linear-gradient(180deg,#f04438,#b91c1c);color:#fff;
+  font:900 22px/1 'Barlow Condensed',sans-serif;letter-spacing:.8px;
+  box-shadow:0 14px 30px rgba(0,0,0,.34),0 0 0 1px rgba(255,255,255,.18) inset;
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
 }
 .inventory-copy{padding:24px 22px 24px}
 .inventory-copy h3{
@@ -726,6 +728,18 @@ function vehicleTitle(car) {
   return [car.year, car.make, car.model].filter(Boolean).join(' ') || 'Vehicle';
 }
 
+function formatVehiclePrice(price) {
+  if (!price) return 'Call for Price';
+  const value = String(price).trim();
+  const numeric = value.replace(/[$,\s]/g, '');
+  if (!numeric || !/^\d+(\.\d+)?$/.test(numeric)) return value;
+  return Number(numeric).toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0
+  });
+}
+
 function vehicleSpecs(car) {
   return [
     car.mileage || 'Mileage TBD',
@@ -749,6 +763,7 @@ function renderInventory(vehicles) {
   grid.innerHTML = vehicles.map(function (car) {
     const title = vehicleTitle(car);
     const image = car.photos && car.photos[0] && car.photos[0].url ? car.photos[0].url : 'assets/images/branding/carcraft-storefront.png';
+    const price = formatVehiclePrice(car.price);
     const specs = vehicleSpecs(car).map(function (spec) {
       return '<div class="inventory-spec">' + escapeHtml(spec) + '</div>';
     }).join('');
@@ -757,7 +772,7 @@ function renderInventory(vehicles) {
       '<article class="inventory-card' + (car.featured ? ' featured' : '') + '">',
         '<div class="inventory-media">',
           '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(title) + ' for sale">',
-          '<div class="inventory-price">' + escapeHtml(car.price || 'Call for Price') + '</div>',
+          '<div class="inventory-price">' + escapeHtml(price) + '</div>',
         '</div>',
         '<div class="inventory-copy">',
           '<h3>' + escapeHtml(title) + '</h3>',
