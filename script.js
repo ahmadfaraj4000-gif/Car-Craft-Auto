@@ -309,5 +309,53 @@ function initRentmectPromo() {
   }
 }
 
+function initCookieConsent() {
+  const banner = document.getElementById('cookieConsentBanner')
+  if (!banner) return
+
+  const storageKey = 'carcraftCookieConsent'
+  const acceptButtons = document.querySelectorAll('[data-cookie-accept]')
+  const denyButtons = document.querySelectorAll('[data-cookie-deny]')
+  const preferenceButtons = document.querySelectorAll('[data-cookie-preferences]')
+
+  function getChoice() {
+    try {
+      return window.localStorage.getItem(storageKey)
+    } catch (error) {
+      return null
+    }
+  }
+
+  function setChoice(choice) {
+    try {
+      window.localStorage.setItem(storageKey, choice)
+    } catch (error) {
+      // Consent still works for the current page view if storage is unavailable.
+    }
+    banner.classList.remove('active')
+    banner.setAttribute('aria-hidden', 'true')
+  }
+
+  function openBanner() {
+    banner.classList.add('active')
+    banner.setAttribute('aria-hidden', 'false')
+  }
+
+  if (!getChoice()) openBanner()
+
+  acceptButtons.forEach((button) => {
+    button.addEventListener('click', () => setChoice('accepted'))
+  })
+
+  denyButtons.forEach((button) => {
+    button.addEventListener('click', () => setChoice('denied'))
+  })
+
+  preferenceButtons.forEach((button) => {
+    button.addEventListener('click', openBanner)
+  })
+}
+
 document.addEventListener('DOMContentLoaded', initEstimateModal)
 document.addEventListener('DOMContentLoaded', initRentmectPromo)
+document.addEventListener('DOMContentLoaded', initCookieConsent)

@@ -315,6 +315,19 @@ footer{padding:30px 0 46px}
 .footer-credit a:hover{
   color:#b92218;
 }
+.footer-legal{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 16px;
+  margin-top:10px;
+  color:#46515d;
+  font-size:13px;
+}
+.footer-legal a{color:#46515d;text-decoration:none}
+.footer-legal a:hover{color:var(--red)}
+.form-disclosure{grid-column:1/-1;color:#6b7280;font-size:13px;line-height:1.55}
+.form-disclosure a{color:#b92218;font-weight:700;text-decoration:underline;text-underline-offset:2px}
 
 
 /* === Hours and self-pay SEO additions === */
@@ -412,6 +425,7 @@ footer{padding:30px 0 46px}
               <textarea class="form-textarea" id="message" name="message" placeholder="Year, make, model, and a description of the damage or request..." required></textarea>
             </div>
             <input type="hidden" name="_subject" value="New Car Craft Estimate Request">
+            <p class="form-disclosure">By submitting this request, you authorize Car Craft Auto Body &amp; Towing and its service providers to process your contact, vehicle, and message details to respond to your request. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.</p>
             <div class="form-group full">
               <button type="submit" class="btn btn-primary" style="width:100%;border:none">Send Request</button>
             </div>
@@ -467,6 +481,12 @@ footer{padding:30px 0 46px}
     <div class="footer-meta">
       <p class="footer-bottom">© 2025 Car Craft Auto Body & Towing. All rights reserved.</p>
       <p class="footer-credit">Powered By <a href="https://reimagebs.com" target="_blank" rel="noopener">RE IMAGE Business Solutions</a></p>
+      <div class="footer-legal" aria-label="Legal links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+        <a href="accessibility.html">Accessibility</a>
+      </div>
     </div>
   </div>
 </footer>
