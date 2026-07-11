@@ -292,16 +292,22 @@ nav{
 .btn-secondary{border:1px solid var(--line-strong);color:var(--silver);background:rgba(255,255,255,.82)}
 .btn-secondary:hover{border-color:rgba(255,255,255,.24);color:#18212b;background:rgba(255,255,255,.06)}
 .hero-stats{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px 0;
+  padding-top:20px;
+  border-top:1px solid var(--line);
 }
 .hero-stat{
-  padding:18px 18px 16px;
-  border:1px solid var(--line);
-  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
-  border-radius:20px;
+  display:flex;
+  align-items:baseline;
+  gap:7px;
+  padding:0 18px;
+  border-left:1px solid var(--line-strong);
 }
-.hero-stat strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:#18212b;letter-spacing:.8px}
-.hero-stat span{display:block;margin-top:4px;color:var(--muted-2);font:700 11px/1.45 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase}
+.hero-stat:nth-child(odd){padding-left:0;border-left:0}
+.hero-stat strong{font:800 14px/1.2 'Barlow',sans-serif;color:var(--text)}
+.hero-stat span{color:var(--muted);font:700 12px/1.35 'Barlow',sans-serif}
 .hero-visual{
   position:relative;min-height:760px;background:#dfe5ea;
 }
@@ -692,12 +698,16 @@ footer{padding:34px 0 46px}
   .nav-links,.nav-phone{display:none}
   .hamburger{display:flex}
   .container{padding:0 18px}
-  .hero{padding-top:calc(var(--nav-h) + 18px)}
-  .hero-copy{padding:32px 20px 24px}
+  .hero{min-height:auto;padding-top:calc(var(--nav-h) + 12px);padding-bottom:24px}
+  .hero-copy{padding:26px 20px 22px}
   .hero-title{font-size:clamp(56px,16vw,86px)}
-  .hero-copy p{font-size:16px}
-  .hero-stats{grid-template-columns:1fr 1fr}
-  .hero-visual{min-height:460px}
+  .hero-copy p{font-size:15px;line-height:1.65;margin-bottom:22px}
+  .hero-actions{margin-bottom:26px}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;padding-top:16px;gap:12px}
+  .hero-stat{display:block;padding:0;border-left:0}
+  .hero-stat strong,.hero-stat span{display:block}
+  .hero-stat span{margin-top:2px}
+  .hero-visual{min-height:280px}
   .hero-logo-mark{width:132px;right:16px;top:16px}
   .hero-card{right:14px;left:14px;bottom:14px;padding:16px}
   .compare-label,.static-label{min-width:84px;font-size:9px;padding:6px 9px}
@@ -1162,12 +1172,13 @@ footer{padding:30px 0 46px}
 .damage-ai-main .form-textarea{min-height:130px;resize:vertical}
 .damage-actions{
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   gap:16px;
   margin-top:36px;
   padding-top:30px;
   border-top:1px solid var(--line);
 }
+.damage-actions #damagePrevBtn{margin-right:auto}
 .damage-actions .btn{border-radius:16px;min-width:150px}
 .damage-upload-zone{
   display:flex;
@@ -1425,11 +1436,20 @@ footer{padding:30px 0 46px}
   .damage-ai-side{border-left:0;border-top:1px solid var(--line)}
 }
 @media(max-width:700px){
-  .damage-ai-shell{padding:70px 18px}
-  .damage-ai-main,.damage-ai-side{padding:22px}
-  .damage-ai-badges,.damage-form-row{grid-template-columns:1fr}
-  .damage-ai-progress{grid-template-columns:1fr 1fr}
-  .damage-actions{flex-direction:column}
+  .damage-ai-shell{padding:44px 14px}
+  .damage-ai-header{display:block;margin-bottom:20px}
+  .damage-ai-header h2{font-size:48px;margin-bottom:10px}
+  .damage-ai-header p{font-size:15px;line-height:1.55}
+  .damage-ai-badges,.damage-ai-side{display:none}
+  .damage-ai-main{padding:16px}
+  .damage-form-row{grid-template-columns:1fr;gap:12px;margin-bottom:12px}
+  .damage-ai-progress{grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:20px}
+  .damage-ai-step-pill{padding:10px 2px;font-size:10px;letter-spacing:.5px}
+  .damage-step-title{font-size:34px;margin-bottom:18px}
+  .damage-ai-main .form-group{gap:6px}
+  .damage-ai-main .form-input,.damage-ai-main .form-select{height:50px;min-height:50px;padding:12px 14px}
+  .damage-actions{margin-top:22px;padding-top:18px}
+  .damage-actions .btn{flex:1;min-width:0;min-height:50px}
   .rentmect-modal-inner{padding:32px 22px 24px}
   .rentmect-modal-actions{flex-direction:column}
   .rental-help-panel{padding:26px 20px;border-radius:22px}
@@ -1484,17 +1504,17 @@ footer{padding:30px 0 46px}
         <span class="hero-topline">AUTO BODY <span class="accent">&amp;</span></span>
         <span class="subline"> 24 Hour Towing</span>
       </h1>
-        <p>23+ years repairing damage the right way—from bumper damage, scratches, dents, and affordable out-of-pocket repairs to full collision and insurance claim repairs. Free estimates available Monday through Friday.</p>
+        <p>For more than two decades, Car Craft has repaired everything from bumper damage, scratches, and dents to full collision and insurance claim work. Free estimates are available Monday through Friday.</p>
         <div class="hero-hours"><strong>Hours:</strong> Mon–Fri, 8:30 AM–4:30 PM <span>Free estimates</span></div>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#estimate" data-estimate-open>Start Photo Estimate</a>
           <a class="btn btn-secondary" href="#work">See Real Repairs</a>
         </div>
           <div class="hero-stats">
-            <div class="hero-stat"><strong>23+</strong><span>Years in Business</span></div>
-            <div class="hero-stat"><strong>4.9★</strong><span>Google Rating</span></div>
-            <div class="hero-stat"><strong>24/7</strong><span>Towing Available</span></div>
-            <div class="hero-stat"><strong>100%</strong><span>Free Estimates</span></div>
+            <div class="hero-stat"><strong>More than two decades</strong><span>in business</span></div>
+            <div class="hero-stat"><strong>4.9 stars</strong><span>on Google</span></div>
+            <div class="hero-stat"><strong>24/7</strong><span>towing available</span></div>
+            <div class="hero-stat"><strong>Free</strong><span>repair estimates</span></div>
           </div>
         </div>
         <div class="hero-visual">
@@ -2206,6 +2226,6 @@ document.querySelectorAll('.compare').forEach(setupCompare);
 <script>
   window.CARCRAFT_CONVEX_URL = "https://elated-bee-109.convex.cloud"
 </script>
-<script src="script.js?v=20260710-1"></script>
+<script src="script.js?v=20260710-2"></script>
 </body>
 </html>

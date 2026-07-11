@@ -77,7 +77,7 @@ function initEstimateModal() {
     document.querySelectorAll('.damage-ai-step-pill').forEach((pill) => {
       pill.classList.toggle('active', Number(pill.dataset.pill) <= currentStep)
     })
-    prevBtn.style.visibility = currentStep === 1 ? 'hidden' : 'visible'
+    prevBtn.style.display = currentStep === 1 ? 'none' : 'inline-flex'
     nextBtn.style.display = currentStep === 4 ? 'none' : 'inline-flex'
     submitBtn.style.display = currentStep === 4 ? 'inline-flex' : 'none'
   }
