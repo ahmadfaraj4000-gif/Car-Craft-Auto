@@ -219,6 +219,16 @@ function initEstimateModal() {
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault()
+
+    // Pressing Enter in a field can submit the form even while the real submit
+    // button is hidden. Treat that as "Next" until the customer reaches Photos.
+    if (currentStep !== 4) {
+      if (!validateStep()) return
+      currentStep = Math.min(4, currentStep + 1)
+      renderStep()
+      return
+    }
+
     if (!validateStep()) return
 
     submitBtn.disabled = true
@@ -243,6 +253,9 @@ function initEstimateModal() {
     }
   })
 
+  // Clear state that a browser may restore from a completed history entry.
+  setError()
+  setSuccess(false)
   updateRentalNote()
   renderStep()
 }

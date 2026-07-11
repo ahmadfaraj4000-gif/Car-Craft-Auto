@@ -68,6 +68,7 @@
 <style>
 :root{
   --bg:#f3f4f6;
+  --site-bg:#f4f5f6;
   --bg-soft:#e9edf1;
   --panel:#ffffff;
   --panel-2:#f4f6f8;
@@ -89,10 +90,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:110px}
 body{
   font-family:'Barlow',sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(213,43,30,.08), transparent 24%),
-    radial-gradient(circle at 88% 10%, rgba(255,255,255,.75), transparent 20%),
-    linear-gradient(180deg,#fafbfc 0%, #f2f4f7 45%, #eef2f5 100%);
+  background:var(--site-bg);
   color:var(--text);
   overflow-x:hidden;
 }
@@ -218,17 +216,13 @@ nav{
 .hero-shell{
   position:relative;
   border:1px solid var(--line);
-  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(241,244,248,.98));
+  background:var(--site-bg);
   border-radius:34px;
   overflow:hidden;
   box-shadow:var(--shadow);
 }
 .hero-shell::before{
-  content:"";position:absolute;inset:0;
-  background:
-    radial-gradient(circle at 16% 24%, rgba(213,43,30,.10), transparent 28%),
-    linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.75) 42%, rgba(255,255,255,.18) 100%);
-  z-index:1;
+  content:none;
 }
 .hero-grid{
   position:relative;z-index:2;
@@ -337,7 +331,7 @@ nav{
 }
 .trust-item strong{display:block;color:#18212b;font-size:14px;letter-spacing:1.1px;margin-bottom:4px}
 
-.services{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+.services{background:var(--site-bg)}
 .services-top{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:38px}
 .services-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:16px}
 .service-card{
@@ -1061,7 +1055,7 @@ footer{padding:30px 0 46px}
 
 }
 .damage-ai-section{
-  background:#f4f5f6;
+  background:var(--site-bg);
   color:var(--text);
   position:relative;
   overflow:hidden;
@@ -1145,6 +1139,11 @@ footer{padding:30px 0 46px}
   color:var(--text);
   padding:18px 20px;
   font:700 16px/1.25 'Barlow',sans-serif;
+}
+.damage-ai-main .form-input,
+.damage-ai-main .form-select{
+  height:58px;
+  min-height:58px;
 }
 .damage-ai-main .form-input:focus,
 .damage-ai-main .form-select:focus,
@@ -2204,6 +2203,6 @@ document.querySelectorAll('.compare').forEach(setupCompare);
 <script>
   window.CARCRAFT_CONVEX_URL = "https://elated-bee-109.convex.cloud"
 </script>
-<script src="script.js"></script>
+<script src="script.js?v=20260710-1"></script>
 </body>
 </html>
