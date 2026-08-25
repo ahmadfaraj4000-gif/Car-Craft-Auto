@@ -60,6 +60,8 @@ function initEstimateModal() {
   const rentalNote = document.getElementById('rentalVehicleNote')
   let currentStep = 1
   let files = []
+  let activeSubmission = null
+  const uploadedFiles = new Map()
 
   function setError(message = '') {
     errorBox.textContent = message
@@ -141,10 +143,19 @@ function initEstimateModal() {
     renderPreviews()
   }
 
-  async function uploadFiles() {
-    const uploaded = []
+  function createSubmissionKey() {
+    if (window.crypto?.randomUUID) return window.crypto.randomUUID()
+    const random = window.crypto?.getRandomValues
+      ? Array.from(window.crypto.getRandomValues(new Uint32Array(4))).join('-')
+      : `${Date.now()}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`
+    return `estimate-${random}`
+  }
+
+  async function uploadFiles(leadId, submissionKey) {
     for (const [index, file] of files.entries()) {
-      const uploadUrl = await convexMutation('estimateLeads:generateUploadUrl', {})
+      const fileKey = `${index}:${file.name}:${file.size}:${file.lastModified}`
+      if (uploadedFiles.has(fileKey)) continue
+      const uploadUrl = await convexMutation('estimateLeads:generateSubmissionUploadUrl', { leadId, submissionKey })
       const uploadResponse = await fetch(uploadUrl, {
         method: 'POST',
         headers: { 'Content-Type': file.type },
@@ -152,12 +163,16 @@ function initEstimateModal() {
       })
       if (!uploadResponse.ok) throw new Error('Photo upload failed. Please try again.')
       const { storageId } = await uploadResponse.json()
-      uploaded.push({ storageId, name: file.name, order: index })
+      await convexMutation('estimateLeads:attachSubmissionPhoto', {
+        leadId,
+        submissionKey,
+        photo: { storageId, name: file.name, order: index }
+      })
+      uploadedFiles.set(fileKey, storageId)
     }
-    return uploaded
   }
 
-  function getPayload(photos) {
+  function getPayload() {
     return {
       name: document.getElementById('damageName').value.trim(),
       phone: document.getElementById('damagePhone').value.trim(),
@@ -173,8 +188,7 @@ function initEstimateModal() {
       severity: document.getElementById('damageSeverity').value,
       description: document.getElementById('damageDescription').value.trim(),
       rentalVehicleInterest: document.querySelector('input[name="rentalVehicleInterest"]:checked')?.value === 'yes',
-      towAssistanceInterest: document.querySelector('input[name="towAssistanceInterest"]:checked')?.value === 'yes',
-      photos
+      towAssistanceInterest: document.querySelector('input[name="towAssistanceInterest"]:checked')?.value === 'yes'
     }
   }
 
@@ -237,16 +251,25 @@ function initEstimateModal() {
     setSuccess(false)
 
     try {
-      const photos = await uploadFiles()
-      await convexAction('estimateLeads:createWithNotification', getPayload(photos))
+      if (!activeSubmission) {
+        const submissionKey = createSubmissionKey()
+        const saved = await convexMutation('estimateLeads:startSubmission', { ...getPayload(), submissionKey })
+        activeSubmission = { leadId: saved.leadId, submissionKey }
+      }
+      await uploadFiles(activeSubmission.leadId, activeSubmission.submissionKey)
+      await convexMutation('estimateLeads:finalizeSubmission', activeSubmission)
       form.reset()
       files = []
+      activeSubmission = null
+      uploadedFiles.clear()
       currentStep = 1
       renderPreviews()
       renderStep()
       setSuccess(true)
     } catch (error) {
-      setError(error.message || 'Could not submit your estimate request.')
+      setError(activeSubmission
+        ? `Your contact and vehicle details were safely saved. ${error.message || 'Photo processing is still incomplete.'} Please press Submit again to retry.`
+        : (error.message || 'Could not submit your estimate request.'))
     } finally {
       submitBtn.disabled = false
       submitBtn.textContent = 'Submit Estimate'
