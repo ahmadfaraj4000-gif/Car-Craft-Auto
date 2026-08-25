@@ -20,8 +20,8 @@ async function convexMutation(path, args) {
   })
 
   const data = await response.json()
-  if (!response.ok || data.error) {
-    throw new Error(data.error?.message || data.error || 'Convex request failed.')
+  if (!response.ok || data.status !== 'success') {
+    throw new Error(data.error?.message || data.errorMessage || data.error || 'Convex request failed.')
   }
   return data.value
 }
@@ -38,8 +38,8 @@ async function convexAction(path, args) {
   })
 
   const data = await response.json()
-  if (!response.ok || data.error) {
-    throw new Error(data.error?.message || data.error || 'Convex request failed.')
+  if (!response.ok || data.status !== 'success') {
+    throw new Error(data.error?.message || data.errorMessage || data.error || 'Convex request failed.')
   }
   return data.value
 }
