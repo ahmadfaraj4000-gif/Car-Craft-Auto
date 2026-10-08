@@ -154,21 +154,13 @@ function initEstimateModal() {
   async function uploadFiles(leadId, submissionKey) {
     for (const [index, file] of files.entries()) {
       const fileKey = `${index}:${file.name}:${file.size}:${file.lastModified}`
-      if (uploadedFiles.has(fileKey)) continue
-      const uploadUrl = await convexMutation('estimateLeads:generateSubmissionUploadUrl', { leadId, submissionKey })
-      const uploadResponse = await fetch(uploadUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': file.type },
-        body: file
+      const state = uploadedFiles.get(fileKey) || {}
+      uploadedFiles.set(fileKey, state)
+      await window.CarCraftPhotos.uploadPhoto({
+        file, order: index, state,
+        getUploadUrl: () => convexMutation('estimateLeads:generateSubmissionUploadUrl', { leadId, submissionKey }),
+        attachPhoto: (photo) => convexMutation('estimateLeads:attachSubmissionPhoto', { leadId, submissionKey, photo })
       })
-      if (!uploadResponse.ok) throw new Error('Photo upload failed. Please try again.')
-      const { storageId } = await uploadResponse.json()
-      await convexMutation('estimateLeads:attachSubmissionPhoto', {
-        leadId,
-        submissionKey,
-        photo: { storageId, name: file.name, order: index }
-      })
-      uploadedFiles.set(fileKey, storageId)
     }
   }
 
