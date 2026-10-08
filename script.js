@@ -9,12 +9,14 @@ function toggleMenu() {
 }
 
 async function convexMutation(path, args) {
+  window.CarCraftTransport.requireSecurePage()
   if (!CARCRAFT_CONVEX_URL) {
     throw new Error('Convex URL is not configured. Set window.CARCRAFT_CONVEX_URL before script.js.')
   }
 
-  const response = await fetch(`${CARCRAFT_CONVEX_URL.replace(/\/$/, '')}/api/mutation`, {
+  const response = await fetch(window.CarCraftTransport.requireHttpsUrl(`${CARCRAFT_CONVEX_URL.replace(/\/$/, '')}/api/mutation`), {
     method: 'POST',
+    redirect: 'error',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ path, args, format: 'json' })
   })
@@ -27,12 +29,14 @@ async function convexMutation(path, args) {
 }
 
 async function convexAction(path, args) {
+  window.CarCraftTransport.requireSecurePage()
   if (!CARCRAFT_CONVEX_URL) {
     throw new Error('Convex URL is not configured. Set window.CARCRAFT_CONVEX_URL before script.js.')
   }
 
-  const response = await fetch(`${CARCRAFT_CONVEX_URL.replace(/\/$/, '')}/api/action`, {
+  const response = await fetch(window.CarCraftTransport.requireHttpsUrl(`${CARCRAFT_CONVEX_URL.replace(/\/$/, '')}/api/action`), {
     method: 'POST',
+    redirect: 'error',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ path, args, format: 'json' })
   })
