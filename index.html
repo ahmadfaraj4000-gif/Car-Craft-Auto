@@ -214,30 +214,37 @@ nav{
   background:var(--red);
 }
 .hero{
-  padding-top:calc(var(--nav-h) + 40px);
-  padding-bottom:42px;
-  min-height:100svh;
-  display:flex;align-items:center;
+  padding-top:var(--nav-h);
+}
+.hero > .container{
+  width:100%;
+  max-width:none;
+  padding:0;
 }
 .hero-shell{
   position:relative;
-  border:1px solid var(--line);
   background:var(--site-bg);
-  border-radius:34px;
   overflow:hidden;
-  box-shadow:var(--shadow);
 }
 .hero-shell::before{
   content:none;
 }
 .hero-grid{
   position:relative;z-index:2;
-  display:grid;grid-template-columns:1.06fr .94fr;align-items:stretch;
+  display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);align-items:stretch;
+  min-height:calc(100svh - var(--nav-h));
 }
-.hero-copy{padding:76px 64px 62px}
+.hero-copy{
+  min-width:0;
+  padding:64px clamp(32px,5vw,128px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+}
 .hero-title{
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(70px,10vw,136px);
+  font-size:clamp(70px,7vw,136px);
   line-height:1;
   letter-spacing:1.5px;
   margin-bottom:22px;
@@ -295,7 +302,7 @@ nav{
 .btn-secondary{border:1px solid var(--line-strong);color:var(--silver);background:rgba(255,255,255,.82)}
 .btn-secondary:hover{border-color:rgba(255,255,255,.24);color:#18212b;background:rgba(255,255,255,.06)}
 .hero-visual{
-  position:relative;min-height:760px;background:#dfe5ea;
+  position:relative;min-height:620px;background:#dfe5ea;
 }
 .hero-main-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.88) contrast(1.05) brightness(.8)}
 .hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(17,24,39,.16))}
@@ -672,6 +679,7 @@ footer{padding:34px 0 46px}
 
 @media (max-width: 1180px){
   .hero-grid,.grid-2,.story-grid,.faq-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-grid{min-height:0}
   .hero-visual{min-height:620px}
   .services-grid,.reviews-grid{grid-template-columns:1fr 1fr}
   .service-card.large{grid-row:auto;min-height:360px;grid-column:1/-1}
@@ -682,7 +690,7 @@ footer{padding:34px 0 46px}
   .nav-links,.nav-phone{display:none}
   .hamburger{display:flex}
   .container{padding:0 18px}
-  .hero{min-height:auto;padding-top:calc(var(--nav-h) + 12px);padding-bottom:24px}
+  .hero{padding-top:var(--nav-h)}
   .hero-copy{padding:26px 20px 22px}
   .hero-title{font-size:clamp(56px,16vw,86px)}
   .hero-copy p{font-size:15px;line-height:1.65;margin-bottom:22px}
@@ -1450,8 +1458,7 @@ footer{padding:30px 0 46px}
         </div>
         </div>
         <div class="hero-visual">
-          <img class="hero-main-image" src="assets/images/branding/carcraft-storefront.png" alt="Audi restored by Car Craft Auto Body & Towing">
-          </div>
+          <img class="hero-main-image" src="assets/images/branding/carcraft-storefront.png" alt="Car Craft Auto Body & Towing storefront">
         </div>
       </div>
     </div>
