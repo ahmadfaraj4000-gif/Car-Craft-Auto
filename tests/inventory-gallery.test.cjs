@@ -6,6 +6,8 @@ const { JSDOM } = require('jsdom');
 const script = fs.readFileSync(require('node:path').join(__dirname, '../assets/js/inventory-gallery.js'), 'utf8');
 function setup(photos) {
   const dom = new JSDOM('<div id="a"></div><div id="b"></div>', { runScripts: 'outside-only', url: 'https://carcraftautobodytowing.com/' });
+  dom.window.HTMLDialogElement.prototype.showModal = function () { this.setAttribute('open', ''); };
+  dom.window.HTMLDialogElement.prototype.close = function () { this.removeAttribute('open'); this.dispatchEvent(new dom.window.Event('close')); };
   dom.window.eval(script);
   const gallery = dom.window.document.getElementById('a');
   dom.window.CarCraftGallery.mount(gallery, { photos }, '2013 Hyundai Veloster');
@@ -38,8 +40,10 @@ test('two cars keep independent gallery state, with stored photo ordering', () =
   assert.equal(second.querySelector('img').src, photos[0].url);
   assert.equal(second.querySelector('.vehicle-gallery-counter').textContent, '1 / 3');
 });
-test('single photo has no controls; missing or PDF photos get fallback', () => {
-  assert.equal(setup([photos[0]]).gallery.querySelectorAll('button').length, 0);
+test('single photo can enlarge without arrows; missing or PDF photos get fallback', () => {
+  const single = setup([photos[0]]).gallery;
+  assert.equal(single.querySelectorAll('.vehicle-gallery-arrow').length, 0);
+  assert.equal(single.querySelectorAll('.vehicle-gallery-expand').length, 1);
   const { gallery } = setup([{name:'car.pdf',url:'https://example.com/storage/123'}]);
   assert.match(gallery.querySelector('img').src, /carcraft-storefront.png$/);
   assert.equal(gallery.querySelectorAll('button').length,0);
@@ -63,4 +67,55 @@ test('horizontal touch swipe advances; vertical gesture does not', () => {
   assert.equal(gallery.querySelector('img').src, photos[1].url);
   pointer('pointerdown',200,20); pointer('pointerup',180,200);
   assert.equal(gallery.querySelector('img').src, photos[1].url);
+});
+
+test('enlarging opens the selected photo, syncs navigation and restores focus and scroll', () => {
+  const {dom, gallery}=setup(photos);
+  const doc=dom.window.document;
+  doc.body.style.overflow='auto';
+  gallery.querySelector('.next').click();
+  const trigger=gallery.querySelector('.vehicle-gallery-expand');
+  assert.match(trigger.textContent,/View larger/);
+  trigger.focus(); trigger.click();
+  const dialog=doc.querySelector('dialog');
+  assert.ok(dialog.open);
+  assert.equal(dialog.querySelector('img').src,photos[1].url);
+  assert.equal(doc.body.style.overflow,'hidden');
+  assert.equal(doc.activeElement,dialog.querySelector('.vehicle-photo-close'));
+  dialog.querySelector('.next').click();
+  assert.equal(dialog.querySelector('img').src,photos[2].url);
+  assert.equal(dialog.querySelector('a').href,photos[2].url);
+  assert.equal(gallery.querySelector('img').src,photos[2].url);
+  dialog.dispatchEvent(new dom.window.KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));
+  assert.equal(dialog.querySelector('img').src,photos[0].url);
+  dialog.querySelector('.vehicle-photo-close').click();
+  assert.equal(doc.querySelector('dialog'),null);
+  assert.equal(doc.activeElement,trigger);
+  assert.equal(doc.body.style.overflow,'auto');
+});
+test('Escape and backdrop close cleanly and a second car opens its own photos', () => {
+  const {dom,gallery}=setup(photos);
+  const doc=dom.window.document;
+  const trigger=gallery.querySelector('.vehicle-gallery-expand');
+  trigger.click();
+  doc.querySelector('dialog').dispatchEvent(new dom.window.Event('cancel',{cancelable:true}));
+  assert.equal(doc.querySelector('dialog'),null);
+  trigger.click();
+  doc.querySelector('dialog').click();
+  assert.equal(doc.querySelector('dialog'),null);
+  const second=doc.getElementById('b');
+  dom.window.CarCraftGallery.mount(second,{photos:[{url:'https://example.com/second-car.jpg'}]},'Second car');
+  second.querySelector('.vehicle-gallery-expand').click();
+  assert.equal(doc.querySelector('dialog img').src,'https://example.com/second-car.jpg');
+  assert.equal(doc.querySelectorAll('dialog .vehicle-gallery-arrow').length,0);
+});
+test('swiping a card does not accidentally open enlarged view', () => {
+  const {dom,gallery}=setup(photos);
+  const frame=gallery.querySelector('.vehicle-gallery-frame');
+  for (const [type,x] of [['pointerdown',200],['pointerup',90]]) {
+    const e=new dom.window.Event(type);Object.assign(e,{pointerType:'touch',clientX:x,clientY:20});frame.dispatchEvent(e);
+  }
+  gallery.querySelector('.vehicle-gallery-expand').click();
+  assert.equal(dom.window.document.querySelector('dialog'),null);
+  assert.equal(gallery.querySelector('img').src,photos[1].url);
 });
