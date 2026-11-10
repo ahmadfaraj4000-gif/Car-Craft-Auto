@@ -593,6 +593,7 @@ footer{padding:30px 0 46px}
 .nav-links .nav-estimate:hover{background:linear-gradient(180deg,#e03d31 0%,#c1261b 100%);color:#fff !important}
 .mobile-menu .nav-estimate{background:linear-gradient(180deg,#d9362b 0%,#b92218 100%);color:#fff}
 </style>
+<link rel="stylesheet" href="assets/css/inventory-gallery.css">
 </head>
 <body>
 
@@ -696,6 +697,7 @@ footer{padding:30px 0 46px}
   </div>
 </footer>
 
+<script src="assets/js/inventory-gallery.js"></script>
 <script>
 window.CARCRAFT_CONVEX_URL = window.CARCRAFT_CONVEX_URL || 'https://elated-bee-109.convex.cloud';
 
@@ -742,13 +744,13 @@ function formatVehiclePrice(price) {
 
 function vehicleSpecs(car) {
   return [
-    car.mileage || 'Mileage TBD',
-    car.color || 'Color TBD',
+    car.mileage ? (/^[\d,]+$/.test(car.mileage) ? Number(car.mileage.replaceAll(',', '')).toLocaleString('en-US') + ' miles' : car.mileage) : '',
+    car.color,
     car.bodyType,
     car.transmission,
     car.titleStatus,
     car.status ? String(car.status).replaceAll('_', ' ') : ''
-  ].filter(Boolean).slice(0, 5);
+  ].filter(Boolean);
 }
 
 function renderInventory(vehicles) {
@@ -762,7 +764,6 @@ function renderInventory(vehicles) {
 
   grid.innerHTML = vehicles.map(function (car) {
     const title = vehicleTitle(car);
-    const image = car.photos && car.photos[0] && car.photos[0].url ? car.photos[0].url : 'assets/images/branding/carcraft-storefront.png';
     const price = formatVehiclePrice(car.price);
     const specs = vehicleSpecs(car).map(function (spec) {
       return '<div class="inventory-spec">' + escapeHtml(spec) + '</div>';
@@ -770,11 +771,9 @@ function renderInventory(vehicles) {
 
     return [
       '<article class="inventory-card' + (car.featured ? ' featured' : '') + '">',
-        '<div class="inventory-media">',
-          '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(title) + ' for sale">',
-          '<div class="inventory-price">' + escapeHtml(price) + '</div>',
-        '</div>',
+        '<div data-vehicle-gallery></div>',
         '<div class="inventory-copy">',
+          '<div class="inventory-price">' + escapeHtml(price) + '</div>',
           '<h3>' + escapeHtml(title) + '</h3>',
           '<p>' + escapeHtml(car.description || 'Contact Car Craft for details about this vehicle.') + '</p>',
           '<div class="inventory-specs">' + specs + '</div>',
@@ -783,6 +782,9 @@ function renderInventory(vehicles) {
       '</article>'
     ].join('');
   }).join('');
+  grid.querySelectorAll('[data-vehicle-gallery]').forEach(function (gallery, index) {
+    window.CarCraftGallery.mount(gallery, vehicles[index], vehicleTitle(vehicles[index]));
+  });
 }
 
 async function loadInventory() {
@@ -797,7 +799,7 @@ async function loadInventory() {
       })
     });
     const data = await response.json();
-    if (!response.ok || data.error) {
+    if (!response.ok || data.status === 'error' || data.error) {
       throw new Error(data.error && data.error.message ? data.error.message : 'Inventory request failed.');
     }
     renderInventory(data.value || []);
