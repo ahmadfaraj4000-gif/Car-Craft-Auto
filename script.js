@@ -106,10 +106,6 @@ function initEstimateModal() {
         return false
       }
     }
-    if (currentStep === 4 && files.length === 0) {
-      setError('Please upload at least one clear damage photo.')
-      return false
-    }
     return true
   }
 
